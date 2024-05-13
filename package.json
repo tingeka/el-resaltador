@@ -50,7 +50,7 @@
 		"production:tailwind:editor": "cross-env NODE_ENV=production npm run development:tailwind:editor -- --minify",
 		"production:tailwind:editor:extra": "cross-env NODE_ENV=production npm run development:tailwind:editor:extra -- --minify",
 		"production:esbuild": "npm run development:esbuild -- --minify",
-		"production:blocks": "wp-scripts build --webpack-copy-php",
+		"production:blocks": "wp-scripts build --webpack-copy-php --webpack-src-dir=\"./theme/blocks/src\" --output-path=\"./theme/blocks/build\"",
 		"production": "run-p \"production:**\"",
 		"prod": "npm run production",
 		"zip": "node node_scripts/zip.js el-resaltador",
