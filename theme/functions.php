@@ -38,7 +38,7 @@ if ( ! defined( 'CMLT_ER_TYPOGRAPHY_CLASSES' ) ) {
 	 */
 	define(
 		'CMLT_ER_TYPOGRAPHY_CLASSES',
-		'prose prose-neutral max-w-none prose-a:text-primary'
+		'prose prose-neutral max-w-none'
 	);
 }
 
