@@ -117,6 +117,9 @@ if ( ! function_exists( 'cmlt_er_setup' ) ) :
 
 		// Remove support for block templates.
 		remove_theme_support( 'block-templates' );
+
+		// Add support
+		add_theme_support( 'align-wide' );
 	}
 endif;
 add_action( 'after_setup_theme', 'cmlt_er_setup' );
