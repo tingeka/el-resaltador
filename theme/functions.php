@@ -195,3 +195,6 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/* LOAD BLOCKS */
+require get_template_directory() . '/blocks/load-blocks.php';
