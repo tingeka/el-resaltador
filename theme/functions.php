@@ -120,6 +120,7 @@ if ( ! function_exists( 'cmlt_er_setup' ) ) :
 
 		// Add support
 		add_theme_support( 'align-wide' );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'cmlt_er_setup' );
@@ -201,3 +202,6 @@ require get_template_directory() . '/inc/template-functions.php';
 
 /* LOAD BLOCKS */
 require get_template_directory() . '/blocks/load-blocks.php';
+
+/* BOOT CARBON FIELD */
+require get_template_directory() . '/inc/crb-boot.php';
