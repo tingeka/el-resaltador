@@ -10181,11 +10181,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
-/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./theme/blocks/src/nota-de-tapa/editor.scss");
-/* harmony import */ var _10up_block_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @10up/block-components */ "./node_modules/@10up/block-components/dist/index.js");
-/* harmony import */ var _10up_block_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./theme/blocks/src/nota-de-tapa/editor.scss");
+/* harmony import */ var _10up_block_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @10up/block-components */ "./node_modules/@10up/block-components/dist/index.js");
+/* harmony import */ var _10up_block_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__);
 
 /**
  * Retrieves the translation of text.
@@ -10201,10 +10199,6 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 
-
-
-
-// Method 2: Building a client-side component.
 
 
 /**
@@ -10224,7 +10218,6 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 const useState = wp.element.useState;
-const useEffect = wp.element.useEffect;
 
 function Edit({
   attributes,
@@ -10239,8 +10232,6 @@ function Edit({
       selectedPost
     });
   };
-  console.log('Selected Post: ', selectedPost);
-  console.log('Atrributes: ', attributes);
   const authorLinkTemplate = postAuthor => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: postAuthor.link,
@@ -10253,7 +10244,7 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Placeholder, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Nota de tapa', 'example'),
     instructions: selectedPost ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Haz click para cambiar una nota de tapa', 'example') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Haz click para elegir la nota de tapa', 'example')
-  }, isSelected && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.ContentPicker, {
+  }, isSelected && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.ContentPicker, {
     onPickChange: pickedContent => {
       handlePostSelect(pickedContent);
     },
@@ -10262,7 +10253,7 @@ function Edit({
     singlePickedLabel: "",
     multiPickedLabel: "",
     contentTypes: ['post', 'page']
-  })), selectedPost && selectedPost.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostContext, {
+  })), selectedPost && selectedPost.length > 0 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostContext, {
     postId: selectedPost[0].id,
     postType: selectedPost[0].type,
     isEditable: false
@@ -10270,27 +10261,27 @@ function Edit({
     className: "flex flex-col-reverse gap-8 lg:flex-row py-16"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex flex-col justify-center w-full lg:w-1/2 gap-2"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostCategoryList, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostCategoryList, {
     className: "wp-block-example-hero__categories m-0 p-0 list-none font-mono"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostCategoryList.ListItem, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostCategoryList.ListItem, {
     className: "wp-block-example-hero__category p-0"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostCategoryList.TermLink, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostCategoryList.TermLink, {
     className: "wp-block-example-hero__category-link text-foreground"
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostTitle, {
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostTitle, {
     tagName: "h1",
     className: "wp-block-nota-de-tapa-post__title m-0"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostExcerpt, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostExcerpt, {
     className: "wp-block-nota-de-tapa-post__excerpt m-0 [&>p]:m-0 text-lg"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex gap-2 text-sm"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostDate, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostDate, {
     className: "wp-block-nota-de-tapa-post__date text-foreground/70"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostAuthor, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostAuthor, {
     className: "wp-block-example-hero__author",
     children: authorLinkTemplate
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "aspect-video w-full lg:w-1/2"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_6__.PostFeaturedImage, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_10up_block_components__WEBPACK_IMPORTED_MODULE_5__.PostFeaturedImage, {
     className: "wp-block-nota-de-tapa-post__featured_image m-0 w-full h-full object-cover"
   })))));
 }

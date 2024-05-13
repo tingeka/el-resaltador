@@ -11,19 +11,11 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
+import { useBlockProps } from "@wordpress/block-editor";
 
 import {
-	Panel,
-	PanelBody,
-	PanelRow,
     Placeholder
 } from "@wordpress/components";
-
-import Select from "react-select";
-
-// Method 2: Building a client-side component.
-import { useEntityRecords } from "@wordpress/core-data";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -42,10 +34,16 @@ import "./editor.scss";
  * @return {WPElement} Element to render.
  */
 const useState = wp.element.useState;
-const useEffect = wp.element.useEffect;
 
-
-import { ContentPicker, PostContext, PostTitle, PostExcerpt, PostFeaturedImage, PostDate, PostAuthor, PostCategoryList } from '@10up/block-components';
+import { 
+    ContentPicker, 
+    PostContext, 
+    PostTitle, 
+    PostExcerpt, 
+    PostFeaturedImage, 
+    PostDate, 
+    PostAuthor, 
+    PostCategoryList } from '@10up/block-components';
 
 
 export default function Edit({ attributes, setAttributes, isSelected }) {
@@ -58,9 +56,6 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
         setSelectedPost(selectedPost);
         setAttributes({ selectedPost })
     }
-
-    console.log('Selected Post: ', selectedPost);
-    console.log('Atrributes: ', attributes);
 
     const authorLinkTemplate = (postAuthor) => {
         return(
