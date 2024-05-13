@@ -93,11 +93,11 @@ function cmlt_er_continue_reading_link( $more_string ) {
 	if ( ! is_admin() ) {
 		$continue_reading = sprintf(
 			/* translators: %s: Name of current post. */
-			wp_kses( __( 'Continue reading %s', 'el-resaltador' ), array( 'span' => array( 'class' => array() ) ) ),
+			wp_kses( __( 'Continuar leyendo %s', 'el-resaltador' ), array( 'span' => array( 'class' => array() ) ) ),
 			the_title( '<span class="sr-only">"', '"</span>', false )
 		);
 
-		$more_string = '<a href="' . esc_url( get_permalink() ) . '">' . $continue_reading . '</a>';
+		$more_string = '<span>...</span><a class="sr-only" href="' . esc_url( get_permalink() ) . '">' . $continue_reading . '</a>';
 	}
 
 	return $more_string;
