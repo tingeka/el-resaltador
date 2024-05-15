@@ -10,6 +10,9 @@ style.css
 style-editor.css
 style-editor-extra.css
 
+# I forgot to ignore Gutenberg custom blocks build folder:
+/theme/gutenberg/build
+
 # Ignore the generated zip file:
 el-resaltador.zip
 
