@@ -113,8 +113,8 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
                                     <PostAuthor className="wp-block-example-hero__author" children={authorLinkTemplate} />
                                 </div>
                             </div>
-                            <div className="aspect-video w-full lg:w-1/2">
-                                <PostFeaturedImage className="wp-block-nota-de-tapa-post__featured_image m-0 w-full h-full object-cover" />
+                            <div className="w-full lg:w-1/2">
+                                <PostFeaturedImage className="wp-block-nota-de-tapa-post__featured_image m-0 aspect-video w-full h-full object-cover" />
                             </div>
                         </div>
                     </PostContext>
