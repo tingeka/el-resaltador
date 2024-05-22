@@ -12,6 +12,8 @@
  */
 
 .entry-header,
-.entry-content {
+.entry-content,
+.is-root-container,
+.edit-post-visual-editor__post-title-wrapper {
 	@apply px-8;
 }
