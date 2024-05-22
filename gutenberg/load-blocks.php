@@ -2,7 +2,7 @@
 
 function cmlt_er_load_blocks() {
     // Get an array of all block.json files in the directory
-    $block_json_files = glob( __DIR__ . '/blocks/*/block.json' );
+    $block_json_files = glob( __DIR__ . '/build/blocks/*/block.json' );
 
     // Check if any block.json files were found
     if ( $block_json_files ) {

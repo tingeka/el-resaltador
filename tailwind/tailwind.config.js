@@ -10,8 +10,8 @@ module.exports = {
 	content: [
 		// Ensure changes to PHP files and `theme.json` trigger a rebuild.
 		'./theme/**/*.php',
-		'./theme/gutenberg/**/**/*.js',
-		'./theme/gutenberg/**/**/**/*.js',
+		'./gutenberg/**/**/*.js',
+		'./gutenberg/**/**/**/*.js',
 	],
 	theme: {
 		// Extend the default Tailwind theme.
