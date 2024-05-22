@@ -93,6 +93,9 @@ module.exports = {
 							// 'thead th': {
 							// 	fontWeight: '600',
 							// },
+							'p': {
+								lineHeight: '1.5'
+							}
 						},
 					],
 				},
