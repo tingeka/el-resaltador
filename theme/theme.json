@@ -15,19 +15,49 @@
 					"name": "Foreground"
 				},
 				{
+					"slug": "primary-light",
+					"color": "#f8ff41",
+					"name": "Primary Light"
+				},
+				{
 					"slug": "primary",
 					"color": "#F7E700",
 					"name": "Primary"
 				},
 				{
+					"slug": "primary-dark",
+					"color": "#d1b100",
+					"name": "Primary Dark"
+				},
+				{
+					"slug": "secondary-light",
+					"color": "#7a41ff",
+					"name": "Secondary Light"
+				},
+				{
 					"slug": "secondary",
-					"color": "#5407DF",
+					"color": "#5e09f8",
 					"name": "Secondary"
 				},
 				{
+					"slug": "secondary-dark",
+					"color": "#4208aa",
+					"name": "Secondary"
+				},
+				{
+					"slug": "tertiary-light",
+					"color": "#ed36ff",
+					"name": "Tertiary Light"
+				},
+				{
 					"slug": "tertiary",
-					"color": "#861388",
+					"color": "#b40ebd",
 					"name": "Tertiary"
+				},
+				{
+					"slug": "tertiary-dark",
+					"color": "#861388",
+					"name": "Tertiary Dark"
 				}
 			]
 		},
