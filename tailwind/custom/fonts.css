@@ -8,8 +8,8 @@
 
  @font-face {
     font-family: 'Roc Grotesk';
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Regular.woff2') format('woff2'),
-        url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Regular.woff') format('woff');
+    src: url('./fonts/RocGrotesk-Regular.woff2') format('woff2'),
+        url('./fonts/RocGrotesk-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -17,8 +17,8 @@
 
 @font-face {
     font-family: 'Roc Grotesk';
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Medium.woff2') format('woff2'),
-        url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Medium.woff') format('woff');
+    src: url('./fonts/RocGrotesk-Medium.woff2') format('woff2'),
+        url('./fonts/RocGrotesk-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -26,8 +26,8 @@
 
 @font-face {
     font-family: 'Roc Grotesk';
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Light.woff2') format('woff2'),
-        url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Light.woff') format('woff');
+    src: url('./fonts/RocGrotesk-Light.woff2') format('woff2'),
+        url('./fonts/RocGrotesk-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -35,8 +35,8 @@
 
 @font-face {
     font-family: 'Roc Grotesk';
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Bold.woff2') format('woff2'),
-        url('/wp-content/themes/el-resaltador/theme/fonts/RocGrotesk-Bold.woff') format('woff');
+    src: url('./fonts/RocGrotesk-Bold.woff2') format('woff2'),
+        url('./fonts/RocGrotesk-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -50,7 +50,7 @@
     font-family: 'Arimo';
     font-style: normal;
     font-weight: 400;
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/arimo-v29-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('./fonts/arimo-v29-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* arimo-italic - latin */
 @font-face {
@@ -58,7 +58,7 @@
     font-family: 'Arimo';
     font-style: italic;
     font-weight: 400;
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/arimo-v29-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('./fonts/arimo-v29-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* arimo-700 - latin */
 @font-face {
@@ -66,7 +66,7 @@
     font-family: 'Arimo';
     font-style: normal;
     font-weight: 700;
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/arimo-v29-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('./fonts/arimo-v29-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* arimo-700italic - latin */
 @font-face {
@@ -74,7 +74,7 @@
     font-family: 'Arimo';
     font-style: italic;
     font-weight: 700;
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/arimo-v29-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('./fonts/arimo-v29-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* MONO */
@@ -84,5 +84,5 @@
     font-family: 'IBM Plex Mono';
     font-style: normal;
     font-weight: 500;
-    src: url('/wp-content/themes/el-resaltador/theme/fonts/ibm-plex-mono-v19-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('./fonts/ibm-plex-mono-v19-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
