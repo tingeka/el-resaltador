@@ -6,27 +6,27 @@
 			"palette": [
 				{
 					"slug": "background",
-					"color": "#ffffff",
+					"color": "#EFEFEF",
 					"name": "Background"
 				},
 				{
 					"slug": "foreground",
-					"color": "#404040",
+					"color": "#1C1C1C",
 					"name": "Foreground"
 				},
 				{
 					"slug": "primary",
-					"color": "#b91c1c",
+					"color": "#F7E700",
 					"name": "Primary"
 				},
 				{
 					"slug": "secondary",
-					"color": "#15803d",
+					"color": "#5407DF",
 					"name": "Secondary"
 				},
 				{
 					"slug": "tertiary",
-					"color": "#0369a1",
+					"color": "#861388",
 					"name": "Tertiary"
 				}
 			]
@@ -34,6 +34,18 @@
 		"layout": {
 			"contentSize": "60rem",
 			"wideSize": "80rem"
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true,
+			"spacingScale": {
+				"operator": "*",
+				"increment": 2.0,
+				"steps": 4,
+				"mediumStep": 2,
+				"unit": "rem"
+			}
 		}
 	}
 }
