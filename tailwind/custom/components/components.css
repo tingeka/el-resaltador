@@ -54,3 +54,35 @@
 .entry-content > .alignright {
 	@apply float-right ml-8;
 }
+
+/**
+ *
+ * Button styles
+ *
+ */
+
+ .btn {
+	@apply py-2 px-4 rounded font-bold text-sm sm:text-base
+ }
+
+ /**
+ *
+ * CTA styles
+ *
+ */
+.cta {
+	@apply h-min
+}
+ .cta > * {
+	@apply m-0
+ }
+
+  /**
+ *
+ * Post metadata
+ *
+ */
+
+ .wp-block-post-terms {
+	@apply font-mono font-medium underline
+ }
