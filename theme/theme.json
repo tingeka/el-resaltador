@@ -59,6 +59,13 @@
 					"color": "#861388",
 					"name": "Tertiary Dark"
 				}
+			],
+			"gradients": [
+				{
+				"slug": "foreground-to-background",
+				"gradient": "linear-gradient(90deg, var(--wp--preset--color--foreground), var(--wp--preset--color--background))",
+				"name": "Foreground to background"
+				}
 			]
 		},
 		"layout": {
