@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "camalote-blocks/nota-de-tapa",
+	"name": "camalote-blocks/notas-de-tapa",
 	"version": "0.1.0",
-	"title": "Nota de Tapa",
+	"title": "Notas de Tapa",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Bloque para mostrar las notas de tapa.",
 	"example": {},
 	"supports": {
 		"html": false,
@@ -14,7 +14,7 @@
 		"alignWide": true
 	},
 	"attributes": {
-		"selectedPost": {
+		"selectedPosts": {
 			"type": "array"
 		}
 	},
