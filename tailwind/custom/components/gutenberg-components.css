@@ -9,7 +9,8 @@
  */
 
 /**
- * Block formats
+ * Block styles
  */
 
+@import "../../../gutenberg/src/block-styles/index.css"
  

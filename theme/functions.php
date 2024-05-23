@@ -200,14 +200,8 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/template-functions.php';
 
-/* LOAD BLOCKS */
-require get_template_directory() . '/gutenberg/load-blocks.php';
-
-/* LOAD BLOCKS EXTENSIONS */
-require get_template_directory() . '/gutenberg/load-blocks-extensions.php';
-
-/* LOAD BLOCKS FORMATS */
-require get_template_directory() . '/gutenberg/load-blocks-formats.php';
+/* LOAD CUSTOM BLOCKS LOADER */
+require get_template_directory() . '/gutenberg/load.php';
 
 /* BOOT CARBON FIELD */
 require get_template_directory() . '/inc/crb-boot.php';
