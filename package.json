@@ -30,7 +30,7 @@
 		"development:tailwind:editor": "cross-env _TW_TARGET=editor npx tailwindcss --postcss -i ./tailwind/tailwind.css -c ./tailwind/tailwind.config.js -o ./theme/style-editor.css",
 		"development:tailwind:editor:extra": "cross-env _TW_TARGET=editor npx tailwindcss --postcss -i tailwind/tailwind-editor-extra.css -c ./tailwind/tailwind.config.js -o ./theme/style-editor-extra.css",
 		"development:esbuild": "npx esbuild ./javascript/script.js ./javascript/block-editor.js --target=esnext --bundle --outdir=./theme/js --out-extension:.js=.min.js",
-		"development:gutenberg:blocks": "wp-scripts start --webpack-src-dir=\"./gutenberg/src/blocks\" --output-path=\"./theme/gutenberg/blocks\"",
+		"development:gutenberg:blocks": "wp-scripts start --webpack-copy-php --webpack-src-dir=\"./gutenberg/src/blocks\" --output-path=\"./theme/gutenberg/blocks\"",
 		"development:gutenberg:blocks-extensions": "wp-scripts start --webpack-src-dir=\"./gutenberg/src/block-extensions\" --output-path=\"./theme/gutenberg/block-extensions\"",
 		"development:gutenberg:blocks-formats": "wp-scripts start --webpack-src-dir=\"./gutenberg/src/block-formats\" --output-path=\"./theme/gutenberg/block-formats\"",
 		"development:gutenberg:blocks-styles": "wp-scripts start --webpack-src-dir=\"./gutenberg/src/block-styles\" --output-path=\"./theme/gutenberg/block-styles\"",
