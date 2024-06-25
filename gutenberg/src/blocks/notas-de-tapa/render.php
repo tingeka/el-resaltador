@@ -3,27 +3,38 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Camalote Blocks – hello from a dynamic block!', 'camalote-blocks' ); ?>
-</p>
+<?php
+$post_ids = array_column( $attributes['selectedPosts'], 'id' );
 
-<?php var_dump ($attributes); ?>
+// return early if no posts were selected
+if (empty($post_ids)) return;
 
-<div class="flex flex-col-reverse gap-8 lg:flex-row py-16" <?php echo get_block_wrapper_attributes(); ?>>
-	<div class="flex flex-col justify-center w-full lg:w-1/2 gap-2">
-		<PostCategoryList class="wp-block-example-hero__categories m-0 p-0 list-none font-mono">
-			<PostCategoryList.ListItem class="wp-block-example-hero__category p-0">
-				<PostCategoryList.TermLink class="wp-block-example-hero__category-link text-foreground" />
-			</PostCategoryList.ListItem>
-		</PostCategoryList>
-		<PostTitle tagName="h1" class="wp-block-nota-de-tapa-post__title m-0" />
-		<PostExcerpt class="wp-block-nota-de-tapa-post__excerpt m-0 [&>p]:m-0 text-lg" />
-		<div class="flex gap-2 text-sm">
-			<PostDate class="wp-block-nota-de-tapa-post__date text-foreground/70" />
-			<PostAuthor class="wp-block-example-hero__author" children={authorLinkTemplate} />
-		</div>
-	</div>
-	<div class="w-full lg:w-1/2">
-		<PostFeaturedImage class="wp-block-nota-de-tapa-post__featured_image m-0 aspect-video w-full h-full object-cover" />
-	</div>
-</div>
+$args = array(
+    'post_type' => 'post', // Change to your post type if needed
+    'post__in' => $post_ids,
+	'orderby' => 'post__in', // Ensure the posts are ordered as per the post__in array
+    'posts_per_page' => 3,
+	'no_found_rows' => true,
+);
+
+$query = new WP_Query($args);
+
+?>
+
+<div class="grid grid-cols-1 gap-8 p-4 mt-4 bg-foreground md:grid-cols-2 text-background xl:rounded-md"> 
+<?php if ($query->have_posts()):
+    while ($query->have_posts()):		
+		$query->the_post();
+		if ($query->current_post === 0):
+			include_once('partials/partial-nota-primaria.php');
+		else:
+			include('partials/partial-nota-secundaria.php');
+		endif;
+    endwhile;
+    // Restore global post data
+    wp_reset_postdata();
+else:
+    // No posts found
+endif;
+?>
+</div> 

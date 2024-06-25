@@ -90,30 +90,6 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
             {
                 selectedPosts && selectedPosts.length > 0 && (
                     <PostsList selectedPosts={selectedPosts} />
-                    // <PostContext 
-                    //     postId={ selectedPosts[0].id} 
-                    //     postType={selectedPosts[0].type}
-                    //     isEditable={false}
-                    // >
-                    //     <div className="flex flex-col-reverse gap-8 lg:flex-row py-16">
-                    //         <div className="flex flex-col justify-center w-full lg:w-1/2 gap-2">
-                    //             <PostCategoryList className="wp-block-example-hero__categories m-0 p-0 list-none font-mono">
-                    //                 <PostCategoryList.ListItem className="wp-block-example-hero__category p-0">
-                    //                     <PostCategoryList.TermLink className="wp-block-example-hero__category-link text-foreground" />
-                    //                 </PostCategoryList.ListItem>
-                    //             </PostCategoryList>
-                    //             <PostTitle tagName="h1" className="wp-block-nota-de-tapa-post__title m-0" />
-                    //             <PostExcerpt className="wp-block-nota-de-tapa-post__excerpt m-0 [&>p]:m-0 text-lg" />
-                    //             <div className="flex gap-2 text-sm">
-                    //                 <PostDate className="wp-block-nota-de-tapa-post__date text-foreground/70" />
-                    //                 <PostAuthor className="wp-block-example-hero__author" children={authorLinkTemplate} />
-                    //             </div>
-                    //         </div>
-                    //         <div className="w-full lg:w-1/2">
-                    //             <PostFeaturedImage className="wp-block-nota-de-tapa-post__featured_image m-0 aspect-video w-full h-full object-cover" />
-                    //         </div>
-                    //     </div>
-                    // </PostContext>
                 )
             }
         </div>
