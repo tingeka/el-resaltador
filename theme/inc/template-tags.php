@@ -11,23 +11,24 @@ if ( ! function_exists( 'cmlt_er_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function cmlt_er_posted_on() {
+	function cmlt_er_posted_on( $classes ) {
 		$time_string = '<time datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time datetime="%1$s">%2$s</time><time datetime="%3$s">%4$s</time>';
-		}
+		// if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		// 	$time_string = '<time datetime="%1$s">%2$s</time><time datetime="%3$s">%4$s</time>';
+		// }
 
 		$time_string = sprintf(
 			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
+			// esc_attr( get_the_modified_date( DATE_W3C ) ),
+			// esc_html( get_the_modified_date() )
 		);
 
 		printf(
-			'<a href="%1$s" rel="bookmark">%2$s</a>',
+			'<a href="%1$s" rel="bookmark" class="%2$s">%3$s</a>',
 			esc_url( get_permalink() ),
+			$classes,
 			$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		);
 	}
