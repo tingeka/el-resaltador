@@ -9,15 +9,19 @@
 
  ?>
 <?php 
-$title_content = $args['title']['content'] ?? '';
-$title_tag = $args['title']['tag'] ?? 'h1';
-$title_classes = $args['title']['classes'] ?? '';
-$title_link = $args['title']['link'] ?? '';
+$args = wp_parse_args(
+    $args,
+    [
+        'content' => '',
+        'tag'     => 'h1',
+        'link'    => '',
+        'classes' => '',
+    ]
+);
+
 ?>
-<a href="<?php echo $title_link ?>">
-    <<?php echo $title_tag ?> 
-        class="m-0 <?php echo $title_classes ?>"
-        >
-        <?php echo $title_content ?>
-    </<?php echo $title_tag ?>>
+<a href="<?php echo $args['link'] ?>">
+    <<?php echo $args['tag']?> class="m-0 <?php echo $args['classes']?>">
+        <?php echo $args['content'] ?>
+    </<?php echo $args['tag'] ?>>
 </a>

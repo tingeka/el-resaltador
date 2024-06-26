@@ -10,26 +10,37 @@
  ?>
 
 <?php
-get_template_part( 
-    'template-parts/post/post-header', 
-    'category',
+
+$args = wp_parse_args(
+    $args,
     [
-        'ul' => [
-            'classes' => $args['category']['ul']['classes'] ?? '',
+        'category' => [
+            'ul' => [
+                'classes' => '',
+            ],
+            'li' => [
+                'classes' => '',
+            ],
+            'a' => [
+                'classes' => '',
+            ],
         ],
-        'li' => [
-            'classes' => $args['category']['li']['classes'] ?? '',
-        ],
-        'a' => [
-            'classes' => $args['category']['a']['classes'] ?? '',
+        'title' => [
+            'content' => '',
+            'tag'     => '',
+            'link'    => '',
+            'classes' => '',
         ]
     ]
 );
-get_template_part( 'template-parts/post/post-header', 'heading', [
-    'title' => [
-        'content' => $args['title']['content'] ?? '',
-        'tag'     => $args['title']['tag'] ?? '',
-        'link'    => $args['title']['link'] ?? '',
-        'classes' => $args['title']['classes'] ?? '',
-    ],
-] );
+
+get_template_part( 
+    'template-parts/post/post-header', 
+    'category',
+    $args['category'],
+);
+get_template_part( 
+    'template-parts/post/post-header', 
+    'heading', 
+    $args['title']
+);

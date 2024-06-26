@@ -10,6 +10,11 @@
  ?>
 
 <?php
-    $classes = $args['date']['classes'] ?? '';
-    cmlt_er_posted_on( $classes );
+    $args = wp_parse_args(
+        $args,
+        [
+            'classes'   => '',
+        ]
+    );
+    cmlt_er_posted_on( $args['classes'] );
 ?>

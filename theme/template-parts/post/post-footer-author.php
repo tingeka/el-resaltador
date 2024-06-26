@@ -11,18 +11,22 @@
 
 <?php
 
-$author_id = $args['author']['id'] ?? '';
-$author_name = $args['author']['name'] ?? '';
-$author_link = $args['author']['link'] ?? '';
-$classes = $args['author']['classes'] ?? '';
-
+$args = wp_parse_args(
+    $args,
+    [
+        'id'        => null,
+        'name'      => '',
+        'link'      => '',
+        'classes'   => '',
+    ]
+);
 ?>
 
 <a 
-    href="<?php echo $author_link ?>" 
-    class="<?php echo $classes ?>"
+    href="<?php echo $args['link'] ?>" 
+    class="<?php echo $args['classes'] ?>"
 >
     <?php 
-        echo $author_name
+        echo $args['name']
     ?>
 </a>

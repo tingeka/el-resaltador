@@ -34,6 +34,8 @@
                     ],
                     'author' => [
                         'id'              => get_the_author_meta( 'ID' ),
+                        'name'            => get_the_author_meta( 'display_name' ),
+                        'link'            => get_author_posts_url( get_the_author_meta( 'ID' ) ),
                         'classes'         => 'm-0 text-background/70',
                     ],
                     'date' => [
