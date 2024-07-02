@@ -15,6 +15,11 @@
 					"name": "Foreground"
 				},
 				{
+					"slug": "primary-50",
+					"color": "#fdffe7",
+					"name": "Primary 50"
+				},
+				{
 					"slug": "primary-light",
 					"color": "#f8ff41",
 					"name": "Primary Light"
