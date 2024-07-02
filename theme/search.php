@@ -30,7 +30,7 @@ get_header();
 			// Start the Loop.
 			while ( have_posts() ) :
 				the_post();
-				get_template_part( 'template-parts/content/content', 'excerpt' );
+				get_template_part( 'template-parts/global/content/content', 'excerpt' );
 
 				// End the loop.
 			endwhile;
@@ -41,7 +41,7 @@ get_header();
 		else :
 
 			// If no content is found, get the `content-none` template part.
-			get_template_part( 'template-parts/content/content', 'none' );
+			get_template_part( 'template-parts/global/content/content', 'none' );
 
 		endif;
 		?>

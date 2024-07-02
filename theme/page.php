@@ -23,7 +23,7 @@ get_header();
 			while ( have_posts() ) :
 				the_post();
 
-				get_template_part( 'template-parts/content/content', 'page' );
+				get_template_part( 'template-parts/global/content/content', 'page' );
 
 				// If comments are open, or we have at least one comment, load
 				// the comment template.
