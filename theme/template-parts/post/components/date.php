@@ -12,9 +12,10 @@
 <?php
     $args = wp_parse_args(
         $args,
-        [
+        [   
+            'link'      => null,
             'classes'   => '',
         ]
     );
-    cmlt_er_posted_on( $args['classes'] );
+    cmlt_er_posted_on( $args['classes'], $args['link'] );
 ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for post footer author
+ * Template part for post footer author bio
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -14,19 +14,17 @@
 $args = wp_parse_args(
     $args,
     [
-        'id'        => null,
-        'name'      => '',
-        'link'      => '',
-        'classes'   => '',
+        'display' => null,
+        'content' => '',
+        'classes' => '',
     ]
 );
 ?>
 
-<a 
-    href="<?php echo $args['link'] ?>" 
+<p 
     class="<?php echo $args['classes'] ?>"
 >
     <?php 
-        echo $args['name']
+        echo $args['content']
     ?>
-</a>
+</p>

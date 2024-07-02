@@ -25,7 +25,6 @@ $args = wp_parse_args(
         ]
     ]
 );
-
 ?>
 
 <ul class="m-0 p-0 list-none font-mono <?php echo $args['ul']['classes'] ?>">
