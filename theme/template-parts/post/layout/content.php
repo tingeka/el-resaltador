@@ -37,6 +37,10 @@ $args = wp_parse_args(
     </div>
     <div class="w-full max-w-72 flex flex-col gap-8 mt-8">
         <!-- Right column content -->
-        <!-- This should be a CTA for subscription -->
+        <?php
+            get_template_part( 'template-parts/global/components/component', 'cta', [
+                'mode' => 'light'
+            ]) 
+        ?>
     </div>
 </section>
