@@ -112,7 +112,7 @@
  * 
  */
  .social-share__wrapper {
-	@apply bg-background mt-8 xl:sticky xl:top-24 xl:h-screen xl:flex
+	@apply bg-background mt-8 xl:sticky xl:top-24 xl:flex xl:self-start 
  }
  .social-share__wrapper .scriptlesssocialsharing {
 	@apply my-0 flex gap-4 flex-wrap items-start
