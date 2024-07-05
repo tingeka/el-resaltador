@@ -200,6 +200,11 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/template-functions.php';
 
+/**
+ * Custom theme utils.
+ */
+require get_template_directory() . '/inc/theme-utils.php';
+
 /* LOAD CUSTOM BLOCKS LOADER */
 require get_template_directory() . '/gutenberg/load.php';
 

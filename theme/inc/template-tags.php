@@ -311,3 +311,6 @@ if ( ! function_exists( 'cmlt_er_content_class' ) ) :
 		echo 'class="' . esc_attr( implode( ' ', $combined_classes ) ) . '"';
 	}
 endif;
+
+require get_template_directory(). '/inc/template-tags/post-list.php';
+require get_template_directory(). '/inc/template-tags/get-latest-posts.php';

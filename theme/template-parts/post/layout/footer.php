@@ -78,5 +78,36 @@ $args = wp_parse_args(
                 $args['author-box']
             )
         ?>
-
+        <!-- Latests Posts -->
+        <?php
+            $latests_posts = cmlt_er_get_latest_posts( 'post', 5, get_queried_object_id() );
+            $latests_posts_data = [];
+            foreach ( $latests_posts as $post ) {
+                $latests_posts_data[] = [
+                    'content' => $post->post_title,
+                    'link' => get_the_permalink( $post->ID )
+                ];
+            }
+            get_template_part( 
+                'template-parts/global/components/component-listing', 
+                'title-only', 
+                [
+                    'title' => [
+                        'content' => 'Últimas',
+                    ],
+                    'listing' => [
+                        'container' => [
+                            'classes' => 'py-4 my-0 relative'
+                        ],
+                        'wrapper'     => [
+                            'classes' => 'flex flex-col gap-4'
+                        ],
+                        'items'      => [
+                            'classes' => 'relative py-4 text-xl font-semibold after-title-gradient',
+                            'data' => $latests_posts_data
+                        ],
+                    ]
+                ]
+            )    
+        ?>
 </div>

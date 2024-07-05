@@ -6,3 +6,14 @@
  *
  * https://tailwindcss.com/docs/plugins#adding-utilities
  */
+
+.gradient-primary-soft {
+    @apply bg-gradient-to-b from-transparent via-primary-50/70 via-40% to-transparent
+}
+
+ /**
+ *
+ */
+ .after-title-gradient {
+	@apply after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gradient-to-r after:from-foreground after:to-transparent
+ }
