@@ -112,11 +112,14 @@
  * 
  */
  .social-share__wrapper {
-	@apply bg-background mt-8 xl:sticky xl:top-[-25vh] xl:h-[125vh] xl:flex xl:items-end xl:self-start
+	@apply bg-background mt-8 xl:sticky xl:top-24 xl:h-screen xl:flex
  }
- .social-share__wrapper > div {
-	@apply my-0 
+ .social-share__wrapper .scriptlesssocialsharing {
+	@apply my-0 flex gap-4 flex-wrap items-start
  }
- .social-share__wrapper > div > div {
-	@apply max-w-min flex-nowrap xl:flex-col
+ .social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__heading {
+	@apply font-semibold text-xl text-foreground/70
+ }
+ .social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__buttons {
+	@apply xl:max-w-min xl:flex-nowrap xl:flex-col
  }
