@@ -1,11 +1,16 @@
 <?php
 /**
- * Template tag for rendering posts as a list.
+ * Renders a list of posts with optional customization.
  *
- * @param array $args Array of arguments for customizing the component.
+ * @param array $args Optional. Array of arguments for customizing the component.
+ *   - container['classes']: CSS classes to apply to the container div.
+ *   - wrapper['classes']: CSS classes to apply to the wrapper ul.
+ *   - items['tag']: HTML tag to use for each list item (h1, h2, etc).
+ *   - items['classes']: CSS classes to apply to each list item.
+ *   - items['data']: Array of post data, with 'content' and 'link' keys.
  * @return string Generated HTML for the latest posts component.
  */
-if (! function_exists( 'cmlt_er_post_list' ) ) {
+if (! function_exists( 'cmlt_er_post_list' ) ):
     function cmlt_er_post_list( $args = [] ) {
         // Extract specific keys from $args or initialize as empty arrays
         $items_container_classes = isset($args['container']['classes']) ? esc_attr($args['container']['classes']) : '';
@@ -15,9 +20,7 @@ if (! function_exists( 'cmlt_er_post_list' ) ) {
         $items_data = isset($args['items']['data']) ? $args['items']['data'] : array();
 
         // Bail if no items
-        if (empty($items_data)) {
-            return '';
-        }
+        if ( empty( $items_data ) ) return '';
 
         // Prepare Items HTML
         $items_html = '';
@@ -71,5 +74,5 @@ if (! function_exists( 'cmlt_er_post_list' ) ) {
         // Return the component HTML
         return $items_container_html;
     }
-}
+endif;
 

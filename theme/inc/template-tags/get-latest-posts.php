@@ -8,6 +8,7 @@
  * @return array An array of post objects.
  */
 function cmlt_er_get_latest_posts( $post_type = 'post', $amount = 10, $exclude = null ) {
+    
     $posts = array();
 
     $args = array(

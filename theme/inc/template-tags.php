@@ -7,54 +7,6 @@
  * @package El_Resaltador
  */
 
-if ( ! function_exists( 'cmlt_er_posted_on' ) ) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 */
-	function cmlt_er_posted_on( $classes, $link = false ) {
-		$time_string = '<time datetime="%1$s">%2$s</time>';
-		// if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		// 	$time_string = '<time datetime="%1$s">%2$s</time><time datetime="%3$s">%4$s</time>';
-		// }
-
-		$time_string = sprintf(
-			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			// esc_attr( get_the_modified_date( DATE_W3C ) ),
-			// esc_html( get_the_modified_date() )
-		);
-
-		$link
-		? printf(
-			'<a href="%1$s" rel="bookmark" class="%2$s">%3$s</a>',
-			esc_url( get_permalink() ),
-			$classes,
-			$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		)
-		: printf(
-			'<span class="%1$s">%2$s</span>',
-			$classes,
-			$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		);
-	}
-endif;
-
-if ( ! function_exists( 'cmlt_er_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information about theme author.
-	 */
-	function cmlt_er_posted_by() {
-		printf(
-		/* translators: 1: posted by label, only visible to screen readers. 2: author link. 3: post author. */
-			'<span class="sr-only">%1$s</span><span class="author vcard"><a class="url fn n" href="%2$s">%3$s</a></span>',
-			esc_html__( 'Posted by', 'el-resaltador' ),
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		);
-	}
-endif;
-
 if ( ! function_exists( 'cmlt_er_comment_count' ) ) :
 	/**
 	 * Prints HTML with the comment count for the current post.
@@ -312,5 +264,10 @@ if ( ! function_exists( 'cmlt_er_content_class' ) ) :
 	}
 endif;
 
-require get_template_directory(). '/inc/template-tags/post-list.php';
-require get_template_directory(). '/inc/template-tags/get-latest-posts.php';
+$theme_dir = get_template_directory();
+$template_tags = glob( $theme_dir . '/inc/template-tags/*.php' );
+foreach ( $template_tags as $template_tag ) {
+    if ( is_file( $template_tag ) ) {
+        require $template_tag;
+    }
+}
