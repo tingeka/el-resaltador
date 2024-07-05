@@ -1,36 +1,75 @@
 <?php
 /**
- * Template part for post single category
+ * Renders a list of categories for the current post.
+ *
+ * This template part is responsible for displaying the categories associated with the current post.
+ * It uses the `cmlt_er_recursive_parse_args()` function to merge the provided arguments with default values,
+ * and then generates the necessary HTML structure to display the categories.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package El_Resaltador
+ * 
+ * @param array $args {
+ *   An associative array of arguments.
+ *
+ *   @type array $ul {
+ *       An associative array of classes to apply to the outer `<ul>` element.
+ *   }
+ *   @type array $li {
+ *       An associative array of classes to apply to the `<li>` elements.
+ *    }
+ *   @type array $a {
+ *       An associative array of classes to apply to the category links (`<a>` elements).
+ *   }
+ * }
+ * 
  */
 
  ?>
 
 <?php
-
-$args = wp_parse_args(
+$args = cmlt_er_recursive_parse_args(
     $args,
     [
         'ul' => [
-            'classes' => '',
+            'classes' => 'm-0 p-0 list-none font-mono',
         ],
         'li' => [
-            'classes' => '',
+            'classes' => 'p-0',
         ],
         'a' => [
-            'classes' => '',
+            'classes' => 'relative border-image-gradient border-image-gradient-foreground',
         ]
     ]
 );
+
+$ul_classes = $args['ul']['classes'];
+$li_classes = $args['li']['classes'];
+$a_classes = $args['a']['classes'];
+
 ?>
 
-<ul class="m-0 p-0 list-none font-mono <?php echo $args['ul']['classes'] ?>">
-    <li class="p-0 <?php echo $args['li']['classes'] ?>">
-        <a href="<?php echo get_category_link( get_the_category()[0] ) ?>" class="<?php echo $args['a']['classes'] ?>">
-            <?php echo get_the_category()[0]->cat_name ?>
-        </a>
+<ul 
+    <?php 
+        echo cmlt_er_generate_attr_string(
+            [
+                'class' => $ul_classes
+            ]
+        )
+    ?>
+>
+    <li 
+        <?php
+            echo cmlt_er_generate_attr_string(
+                [
+                    'class' => $li_classes
+                ]
+            )
+        ?>
+    >
+        <?php 
+            echo cmlt_er_first_category_link( $a_classes )
+        ?>
     </li>
 </ul>

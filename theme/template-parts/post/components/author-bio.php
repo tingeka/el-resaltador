@@ -11,20 +11,22 @@
 
 <?php
 
-$args = wp_parse_args(
+$args = cmlt_er_recursive_parse_args(
     $args,
-    [
-        'display' => null,
-        'content' => '',
+    [   
         'classes' => '',
     ]
 );
-?>
 
-<p 
-    class="<?php echo $args['classes'] ?>"
->
-    <?php 
-        echo $args['content']
-    ?>
-</p>
+$content = get_the_author_meta( 'description' );
+$classes = $args['classes'];
+
+echo cmlt_er_content_tag(
+    'p',
+    esc_html( $content ),
+    [
+        'class' => $classes
+    ]
+)
+
+?>

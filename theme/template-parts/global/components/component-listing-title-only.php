@@ -14,7 +14,7 @@ $args = cmlt_er_recursive_parse_args(
     [
         'container' => [
             'tag'     => 'div',
-            'classes' => 'w-full max-w-xl mx-auto flex flex-col gap-4 px-4 py-16 gradient-primary-soft'
+            'classes' => 'w-full max-w-xl mx-auto flex flex-col px-4 py-16 gradient-primary-soft'
         ],
         'title' => [
             'content' => '',
@@ -38,20 +38,24 @@ $args = cmlt_er_recursive_parse_args(
     ]
 );
 
-$container_classes = esc_attr( $args['container']['classes'] );
+$container_attr = cmlt_er_generate_attr_string( 
+    [ 
+        'class' => $args['container']['classes'] 
+    ] 
+);
 
-$title_tag = esc_attr($args['title']['tag']);
-$title_content = esc_html($args['title']['content']);
-$title_classes = esc_attr($args['title']['classes']);
+$title_tag = $args['title']['tag'];
+$title_content = $args['title']['content'];
+$title_classes = $args['title']['classes'];
 
 $listing = cmlt_er_post_list( $args['listing'] );
 
 if ( !empty( $listing ) ): ?>
-    <div <?php echo cmlt_er_generate_attr_string( [ 'class' => $container_classes ] ) ?>>
+    <div <?php echo $container_attr ?>>
         <?php
             echo cmlt_er_content_tag(
                 $title_tag,
-                $title_content,
+                esc_html( $title_content ),
                 [
                     'class' => $title_classes
                 ]

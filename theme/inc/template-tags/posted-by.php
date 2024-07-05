@@ -22,14 +22,15 @@ if ( ! function_exists( 'cmlt_er_posted_by' ) ) :
             esc_html( get_the_author() ),
             [ 
                 'class' => 'url fn n', 
-                'href' => esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) ]
+                'href' => get_author_posts_url( get_the_author_meta( 'ID' ) )
+            ]
         );
 
         $author_span = cmlt_er_content_tag(
             'span',
             $author_link,
             [ 
-                'class' => 'author vcard' . esc_attr( $classes )  
+                'class' => rtrim( 'author vcard ' . $classes )  
             ]
         );
 

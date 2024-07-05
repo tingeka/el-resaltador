@@ -14,35 +14,34 @@
 function cmlt_er_post_tags( $classes = [] ) {
 
     $container_classes = $classes['container']['classes'] 
-    ? esc_attr( $classes['container']['classes'] ) 
+    ? $classes['container']['classes'] 
     : '';
 
     $wrapper_classes = $classes['wrapper']['classes'] 
-    ? esc_attr( $classes['wrapper']['classes'] ) 
+    ? $classes['wrapper']['classes'] 
     : '';
 
     $list_classes = $classes['list']['classes'] 
-    ? esc_attr( $classes['list']['classes'] ) 
+    ? $classes['list']['classes'] 
     : '';
 
     $item_classes = $classes['item']['classes'] 
-    ? esc_attr( $classes['item']['classes'] ) 
+    ? $classes['item']['classes'] 
     : '';
 
     // Get tags for the current post
     $tags = get_the_tags();
-    if ( ! $tags ) {
-        return '';
-    }
+    
+    if ( ! $tags ) return '';
 
     // Build the tag links
     $tag_links = [];
     foreach ( $tags as $tag ) {
         $tag_links[] = cmlt_er_content_tag(
             'a',
-            $tag->name,
+            esc_html( $tag->name ),
             [
-                'href' => esc_url( get_tag_link( $tag->term_id ) ),
+                'href' => get_tag_link( $tag->term_id ),
             ]
         );
     }

@@ -9,15 +9,15 @@
  */
 function cmlt_er_get_latest_posts( $post_type = 'post', $amount = 10, $exclude = null ) {
     
-    $posts = array();
+    $posts = [];
 
-    $args = array(
+    $args = [
         'post_type'            => $post_type,
         'posts_per_page'       => $amount,
         'post_status'          => 'publish',
         'ignore_sticky_posts'  => true,
         'no_found_rows'        => true,
-    );
+    ];
 
     $recent_posts = new WP_Query( $args );
 

@@ -10,12 +10,16 @@
  ?>
 
 <?php
+    
     $args = wp_parse_args(
         $args,
         [   
-            'link'      => null,
-            'classes'   => '',
+            'classes'   => 'text-foreground/70',
         ]
     );
-    cmlt_er_posted_on( $args['classes'], $args['link'] );
+    
+    $classes = $args['classes'];
+
+    echo cmlt_er_posted_on( $classes );
+    
 ?>

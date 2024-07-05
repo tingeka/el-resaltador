@@ -25,7 +25,7 @@ if ( ! function_exists( 'cmlt_er_posted_on' ) ) :
                 'class' => $classes,
             ]
         );
-
+        
         return $output;
 
     }

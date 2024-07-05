@@ -10,14 +10,14 @@
  ?>
 
 <?php
-$args = wp_parse_args(
+
+$args = cmlt_er_recursive_parse_args(
     $args,
     [
         'container' => [
-            'classes' => ''
+            'classes' => 'max-w-[50rem] mx-auto flex flex-col gap-8'
         ],
         'tags' => [
-            'content'       => [],
             'container'     => [
                 'classes' => ''
             ],
@@ -39,29 +39,28 @@ $args = wp_parse_args(
                 'classes' => ''
             ],
             'image'     => [
-                'display' => null,
                 'content' => '',
                 'classes' => '',
             ],
             'name'      => [
-                'display' => null,
-                'content' => '',
-                'link'    => '',
                 'classes' => '',
             ],
             'bio' => [
-                'display' => null,
-                'content' => '',
                 'classes' => '',
             ]
         ]
     ]
 );
 
+$container_attr = cmlt_er_generate_attr_string( 
+    [
+        'class' => $args['container']['classes']
+    ]
+);
 
 ?>
 
-<div class="<?php echo $args['container']['classes'] ?>">
+<div <?php echo $container_attr ?>">
         <!-- Post Tags  -->
         <?php 
             get_template_part( 
@@ -89,18 +88,18 @@ $args = wp_parse_args(
                 ];
             }
             get_template_part( 
-                'template-parts/global/components/component-listing', 
-                'title-only', 
+                'template-parts/global/components/component', 
+                'listing-title-only', 
                 [
                     'title' => [
                         'content' => 'Últimas',
                     ],
                     'listing' => [
                         'container' => [
-                            'classes' => 'py-4 my-0 relative'
+                            'classes' => 'my-0 relative'
                         ],
                         'wrapper'     => [
-                            'classes' => 'flex flex-col gap-4'
+                            'classes' => 'flex flex-col'
                         ],
                         'items'      => [
                             'classes' => 'relative py-4 text-xl font-semibold after-title-gradient',

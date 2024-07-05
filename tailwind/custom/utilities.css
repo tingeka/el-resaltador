@@ -17,3 +17,20 @@
  .after-title-gradient {
 	@apply after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gradient-to-r after:from-foreground after:to-transparent
  }
+
+ .border-image-gradient {
+    @apply 
+    before:block
+    before:mb-1
+    before:-top-3 
+    before:left-0 
+    before:w-10
+    before:h-1.5
+ }
+ .border-image-gradient-foreground {
+    @apply before:bg-gradient-to-r before:from-foreground before:to-transparent
+ }
+
+ .border-image-gradient-primary {
+    @apply before:bg-gradient-to-r before:from-primary before:to-transparent
+ }

@@ -11,14 +11,30 @@
  * @return array            Merged array.
  */
 if ( ! function_exists( 'cmlt_er_recursive_parse_args' ) ) {
-	function cmlt_er_recursive_parse_args( $args, $defaults ) {
-		$new_args = (array) $defaults;
+	function cmlt_er_recursive_parse_args( $args = [], $defaults = [] ) {
+		
+		// Check if $args and $defaults are arrays, issue a warning and log an error if not
+		if ( !is_array( $args ) ) {
+			$message = 'cmlt_er_recursive_parse_args: Argument $args should be an array.';
+			trigger_error( $message, E_USER_WARNING );
+			error_log( $message );
+			return $defaults; // Or return an empty array [] if preferred
+		}
+		
+		if ( !is_array( $defaults )) {
+			$message = 'cmlt_er_recursive_parse_args: Argument $defaults should be an array.';
+			trigger_error( $message, E_USER_WARNING );
+			error_log( $message );
+			return []; // Or return $args if you want to preserve the input
+		}
+
+		$new_args = $defaults;
 
 		foreach ( $args as $key => $value ) {
 			if ( is_array( $value ) && isset( $new_args[ $key ] ) ) {
 				$new_args[ $key ] = cmlt_er_recursive_parse_args( $value, $new_args[ $key ] );
 			}
-			else {
+			elseif ( !empty( $value ) || ( isset( $new_args[ $key ] ) && is_null( $value ) ) ) {
 				$new_args[ $key ] = $value;
 			}
 		}

@@ -9,9 +9,9 @@ if ( ! function_exists( 'cmlt_er_first_category_link' ) ) :
     function cmlt_er_first_category_link( $classes = '' ) {
         // Get the first category of the post
         $category = get_the_category();
-        if (!empty($category)) {
+        if ( !empty( $category ) ) {
             $category = $category[0];
-            $category_link = get_category_link($category);
+            $category_link = get_category_link( $category );
             $category_name = $category->cat_name;
     
             // Output the HTML with localized and escaped category name
@@ -19,10 +19,11 @@ if ( ! function_exists( 'cmlt_er_first_category_link' ) ) :
                 'a',
                 esc_html__( $category_name, 'el-resaltador' ),
                 [
-                    'href' => esc_url($category_link),
-                    'class' => esc_attr($classes)
+                    'href' => $category_link,
+                    'class' => $classes
                 ]
             );
+            
             return $first_category_html;
         }
     }

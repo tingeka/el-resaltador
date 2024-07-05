@@ -1,32 +1,30 @@
 <?php
 /**
- * Template part for post footer author
+ * Template part for the name name in author box.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package El_Resaltador
+ * 
+ * Renders the post author name with a link to the author's archive page.
+ *
+ * @param string $classes CSS classes to apply to the author name element.
+ * @return void
+ * 
  */
-
- ?>
+?>
 
 <?php
 
-$args = wp_parse_args(
+$args = cmlt_er_recursive_parse_args(
     $args,
     [
-        'display' => null,
-        'content' => '',
-        'link'    => '',
-        'classes' => '',
+        'classes' => 'm-0 text-foreground/70',
     ]
 );
-?>
 
-<a 
-    href="<?php echo $args['link'] ?>" 
-    class="<?php echo $args['classes'] ?>"
->
-    <?php 
-        echo $args['content']
-    ?>
-</a>
+$author_name = cmlt_er_posted_by( $args['classes'] );
+
+echo $author_name;
+
+?>
