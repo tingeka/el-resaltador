@@ -36,36 +36,49 @@ add_filter( 'comment_form_defaults', 'cmlt_er_comment_form_defaults' );
  * Filters the default archive titles.
  */
 function cmlt_er_get_the_archive_title() {
-	if ( is_category() ) {
-		$title = __( 'Category Archives: ', 'el-resaltador' ) . '<span>' . single_term_title( '', false ) . '</span>';
-	} elseif ( is_tag() ) {
-		$title = __( 'Tag Archives: ', 'el-resaltador' ) . '<span>' . single_term_title( '', false ) . '</span>';
-	} elseif ( is_author() ) {
-		$title = __( 'Author Archives: ', 'el-resaltador' ) . '<span>' . get_the_author_meta( 'display_name' ) . '</span>';
-	} elseif ( is_year() ) {
-		$title = __( 'Yearly Archives: ', 'el-resaltador' ) . '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'el-resaltador' ) ) . '</span>';
-	} elseif ( is_month() ) {
-		$title = __( 'Monthly Archives: ', 'el-resaltador' ) . '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'el-resaltador' ) ) . '</span>';
-	} elseif ( is_day() ) {
-		$title = __( 'Daily Archives: ', 'el-resaltador' ) . '<span>' . get_the_date() . '</span>';
-	} elseif ( is_post_type_archive() ) {
-		$cpt   = get_post_type_object( get_queried_object()->name );
-		$title = sprintf(
-			/* translators: %s: Post type singular name */
-			esc_html__( '%s Archives', 'el-resaltador' ),
-			$cpt->labels->singular_name
-		);
-	} elseif ( is_tax() ) {
-		$tax   = get_taxonomy( get_queried_object()->taxonomy );
-		$title = sprintf(
-			/* translators: %s: Taxonomy singular name */
-			esc_html__( '%s Archives', 'el-resaltador' ),
-			$tax->labels->singular_name
-		);
-	} else {
-		$title = __( 'Archives:', 'el-resaltador' );
-	}
-	return $title;
+
+    $prepend = function( $string ) {
+        return cmlt_er_content_tag(
+            'span',
+            $string,
+            [
+                'class' => 'sr-only',
+            ]
+        );
+    };
+
+    if ( is_category() ) {
+        /* traductores: Prefijo del título del archivo de categoría */
+        $title = $prepend( esc_html_x( 'Sección: ', 'Prefijo del título del archivo de categoría', 'el-resaltador' ) ) . single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        /* traductores: Prefijo del título del archivo de etiquetas */
+        $title = $prepend( esc_html_x( 'Etiqueta: ', 'Prefijo del título del archivo de etiquetas', 'el-resaltador' ) ) . single_cat_title( '', false );
+    } elseif ( is_author() ) {
+        /* traductores: Prefijo del título del archivo de autor */
+        $title = $prepend( esc_html_x( 'Autor/a: ', 'Prefijo del título del archivo de autor', 'el-resaltador' ) ) . get_the_author_meta( 'display_name' );
+    } elseif ( is_year() ) {
+        /* traductores: Prefijo del título del archivo anual */
+        $title = $prepend( esc_html_x( 'Anuario: ', 'Prefijo del título del archivo anual', 'el-resaltador' ) ) . get_the_date( _x( 'Y', 'formato de fecha de los archivos anuales', 'el-resaltador' ) );
+    } elseif ( is_month() ) {
+        /* traductores: Prefijo del título del archivo mensual */
+        $title = $prepend( esc_html_x( 'Mes: ', 'Prefijo del título del archivo mensual', 'el-resaltador' ) ) . get_the_date( _x( 'F Y', 'formato de fecha de los archivos mensuales', 'el-resaltador' ) );
+    } elseif ( is_day() ) {
+        /* traductores: Prefijo del título del archivo diario */
+        $title = $prepend( esc_html_x( 'Día: ', 'Prefijo del título del archivo diario', 'el-resaltador' ) ) . get_the_date( _x( 'F j, Y', 'formato de fecha de los archivos diarios', 'el-resaltador' ) );
+    } elseif ( is_post_type_archive() ) {
+        $cpt   = get_post_type_object( get_queried_object()->name );
+        /* traductores: Prefijo del título del archivo de tipo de contenido */
+        $title = $prepend( esc_html_x( 'Archivo de tipo de contenido: ', 'Prefijo del título del archivo de tipo de contenido', 'el-resaltador' ) ) . $cpt->labels->singular_name;
+    } elseif ( is_tax() ) {
+        $tax   = get_taxonomy( get_queried_object()->taxonomy );
+        /* traductores: Prefijo del título del archivo de taxonomía */
+        $title = $prepend( esc_html_x( 'Taxonomía: ', 'Prefijo del título del archivo de taxonomía', 'el-resaltador' ) ) . $tax->labels->singular_name;
+    } else {
+        /* traductores: Título genérico de archivo */
+        $title = esc_html_x( 'Archivos:', 'Título genérico de archivo', 'el-resaltador' );
+    }
+
+    return $title;
 }
 add_filter( 'get_the_archive_title', 'cmlt_er_get_the_archive_title' );
 

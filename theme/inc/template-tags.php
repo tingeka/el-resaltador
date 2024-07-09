@@ -142,38 +142,6 @@ if ( ! function_exists( 'cmlt_er_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'cmlt_er_post_thumbnail' ) ) :
-	/**
-	 * Displays an optional post thumbnail, wrapping the post thumbnail in an
-	 * anchor element except when viewing a single post.
-	 */
-	function cmlt_er_post_thumbnail() {
-		if ( ! cmlt_er_can_show_post_thumbnail() ) {
-			return;
-		}
-
-		if ( is_singular() ) :
-			?>
-
-			<figure>
-				<?php the_post_thumbnail(); ?>
-			</figure><!-- .post-thumbnail -->
-
-			<?php
-		else :
-			?>
-
-			<figure>
-				<a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-					<?php the_post_thumbnail(); ?>
-				</a>
-			</figure>
-
-			<?php
-		endif; // End is_singular().
-	}
-endif;
-
 if ( ! function_exists( 'cmlt_er_comment_avatar' ) ) :
 	/**
 	 * Returns the HTML markup to generate a user avatar.
@@ -209,21 +177,6 @@ if ( ! function_exists( 'cmlt_er_discussion_avatars_list' ) ) :
 			);
 		}
 		echo '</ol>', "\n";
-	}
-endif;
-
-if ( ! function_exists( 'cmlt_er_the_posts_navigation' ) ) :
-	/**
-	 * Wraps `the_posts_pagination` for use throughout the theme.
-	 */
-	function cmlt_er_the_posts_navigation() {
-		the_posts_pagination(
-			array(
-				'mid_size'  => 2,
-				'prev_text' => __( 'Newer posts', 'el-resaltador' ),
-				'next_text' => __( 'Older posts', 'el-resaltador' ),
-			)
-		);
 	}
 endif;
 
