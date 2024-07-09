@@ -17,9 +17,15 @@
  * The supplied styles are meant to match the default `h1` classes from
  * Tailwind Typography.
  */
+ .page-header {
+	@apply w-full max-w-screen-xl mx-auto px-4 py-8 xl:py-16
+ }
 .page-title,
 .entry-title {
-	@apply max-w-content mx-auto mb-6 text-3xl font-extrabold text-neutral-900;
+	@apply max-w-content text-3xl font-extrabold text-neutral-900;
+}
+.entry-title {
+	@apply mx-auto mb-6;
 }
 .editor-styles-wrapper .entry-title.post-type-post {
 	@apply max-w-[50rem]
@@ -123,3 +129,36 @@
  .social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__buttons {
 	@apply xl:max-w-min xl:flex-nowrap xl:flex-col
  }
+
+/**
+ *
+ */
+
+nav.pagination .nav-links {
+	@apply flex justify-center items-center py-8 px-4 text-base
+}
+
+nav.pagination .nav-links .page-numbers {
+	@apply flex items-center justify-center p-2 w-8 h-8;
+}
+
+nav.pagination .nav-links .page-numbers.next,
+nav.pagination .nav-links .page-numbers.prev {
+	@apply font-bold;
+}
+
+nav.pagination .nav-links .page-numbers.current {
+	@apply border border-foreground/30 rounded
+}
+
+/**
+ *
+ */
+
+.breadcrumbs {
+	@apply text-foreground/70 font-semibold
+}
+
+.breadcrumbs .current-item {
+	@apply font-normal
+}
