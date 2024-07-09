@@ -12,8 +12,8 @@
     <!-- Post Header -->
     <?php
         get_template_part( 
-                'template-parts/post/layout/header', 
-                '',
+                'template-parts/post/sections/section', 
+                'header-single',
                 [
                     'container' => [
                         'classes' => '',
@@ -59,16 +59,16 @@
     <!-- Post Content -->
     <?php 
         get_template_part( 
-            'template-parts/post/layout/content', 
-            '', 
+            'template-parts/post/sections/section', 
+            'content-single', 
             []
         )
     ?>
     <!-- Post Footer -->
     <?php 
         get_template_part( 
-            'template-parts/post/layout/footer', 
-            '', 
+            'template-parts/post/sections/section', 
+            'footer-single', 
             [
                 'container' => [
                     'classes' => '',

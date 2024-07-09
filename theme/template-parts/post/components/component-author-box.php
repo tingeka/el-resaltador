@@ -48,9 +48,9 @@ $wrapper_attr = cmlt_er_generate_attr_string(
 <div <?php echo $container_attr; ?>>
     <div <?php echo $wrapper_attr; ?>>
         <?php
-            get_template_part('template-parts/post/components/author', 'image', $args['image'] );
-            get_template_part('template-parts/post/components/author', 'name', $args['name'] );
-            get_template_part('template-parts/post/components/author', 'bio', $args['bio'] ); 
+            get_template_part('template-parts/post/components/component', 'author-image', $args['image'] );
+            get_template_part('template-parts/post/components/component', 'author-name', $args['name'] );
+            get_template_part('template-parts/post/components/component', 'author-bio', $args['bio'] ); 
         ?>
     </div>
 </div>

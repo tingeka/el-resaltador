@@ -17,7 +17,7 @@ get_header();
 
 			<?php
 				get_template_part( 
-					'template-parts/global/components/component', 
+					'template-parts/global/sections/section', 
 					'page-header', 
 					[
 						'title' => [

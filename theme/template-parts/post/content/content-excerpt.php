@@ -92,8 +92,8 @@
             <?php
                 /* Post Heading */
                 get_template_part( 
-                    'template-parts/post/components/heading', 
-                    '', 
+                    'template-parts/post/components/component', 
+                    'heading', 
                     $args['title']
                 ); 
             ?>
@@ -102,8 +102,8 @@
             <?php 
                 /* Post Excerpt */
                 get_template_part( 
-                    'template-parts/post/components/excerpt', 
-                    '', 
+                    'template-parts/post/components/component', 
+                    'excerpt', 
                     $args['excerpt']
                 ); 
             ?>
@@ -111,33 +111,16 @@
         <footer <?php echo $footer_container_attr ?>>
             <?php
                 get_template_part( 
-                    'template-parts/post/components/date', 
-                    '',
+                    'template-parts/post/components/component', 
+                    'date',
                     $args['footer']['date']
                 );
                 get_template_part( 
-                    'template-parts/post/components/author', 
-                    'name',
+                    'template-parts/post/components/component', 
+                    'author-name',
                     $args['footer']['author']
                 );
             ?>
         </footer>
     </section>
-
-	<?php 
-    // cmlt_er_post_thumbnail(); 
-    ?>
-
-	
-    <!-- 
-        <div <?php // cmlt_er_content_class( 'entry-content' ); ?>> 
-		<?php //the_excerpt(); ?>
-	</div>
-    -->
-    <!-- .entry-content -->
-
-	<!-- <footer class="entry-footer"> -->
-		<?php // cmlt_er_entry_footer(); ?>
-	<!-- </footer> -->
-
 </article><!-- #post-${ID} -->

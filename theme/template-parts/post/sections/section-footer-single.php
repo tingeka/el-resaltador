@@ -64,16 +64,16 @@ $container_attr = cmlt_er_generate_attr_string(
         <!-- Post Tags  -->
         <?php 
             get_template_part( 
-                'template-parts/post/components/tags', 
-                '', 
+                'template-parts/post/components/component', 
+                'tags', 
                 $args['tags']
             )
         ?>
         <!-- Post Author Box -->
         <?php
             get_template_part( 
-                'template-parts/post/components/author', 
-                'box', 
+                'template-parts/post/components/component', 
+                'author-box', 
                 $args['author-box']
             )
         ?>

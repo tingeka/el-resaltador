@@ -81,33 +81,33 @@ $footer_container_attr = cmlt_er_generate_attr_string(
         <?php
             /* Post Category */
             get_template_part( 
-                'template-parts/post/components/category',
-                '',
+                'template-parts/post/components/component',
+                'category',
                 $args['category']
             );
             /* Post Heading */
             get_template_part( 
-                'template-parts/post/components/heading', 
-                '', 
+                'template-parts/post/components/component', 
+                'heading', 
                 $args['title']
             ); 
             /* Post Excerpt */
             get_template_part( 
-                'template-parts/post/components/excerpt', 
-                '', 
+                'template-parts/post/components/component', 
+                'excerpt', 
                 $args['excerpt']
             ); 
         ?>
         <div <?php echo $footer_container_attr; ?>">
             <?php
                 get_template_part( 
-                    'template-parts/post/components/date', 
-                    '',
+                    'template-parts/post/components/component', 
+                    'date',
                     $args['footer']['date']
                 );
                 get_template_part( 
-                    'template-parts/post/components/author', 
-                    'name',
+                    'template-parts/post/components/component', 
+                    'author-name',
                     $args['footer']['author']
                 );
             ?>
