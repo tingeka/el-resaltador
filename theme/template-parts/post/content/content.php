@@ -39,6 +39,7 @@
                         'classes' => '',
                     ],
                     'excerpt' => [
+                        'display' => null,
                         'content' => '',
                         'classes' => '',
                     ],
@@ -99,8 +100,6 @@
                         'classes' => '',
                     ],
                     'name'      => [
-                        'content' => '',
-                        'link'    => '',
                         'classes' => '',
                     ],
                     'bio' => [
