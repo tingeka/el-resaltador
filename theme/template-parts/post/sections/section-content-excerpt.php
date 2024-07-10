@@ -18,7 +18,7 @@ $args = cmlt_er_recursive_parse_args(
             'classes' => 'flex flex-col gap-2',
         ],
         'excerpt' => [
-            'display' => null,
+            'display' => true,
             'content' => '',
             'classes' => '',
         ]
@@ -31,15 +31,17 @@ $container_attr = cmlt_er_generate_attr_string(
     ] 
 );
 
-?>
+$display_excerpt = $args['excerpt']['display'];
 
-<section <?php echo $container_attr; ?>>
-    <?php 
-        /* Post Excerpt */
-        get_template_part( 
-            'template-parts/post/components/component', 
-            'excerpt', 
-            $args['excerpt']
-        ); 
-    ?>
-</section><!--.entry-body -->
+if ( $display_excerpt ): ?>
+    <section <?php echo $container_attr; ?>>
+        <?php 
+            /* Post Excerpt */
+            get_template_part( 
+                'template-parts/post/components/component', 
+                'excerpt', 
+                $args['excerpt']
+            ); 
+        ?>
+    </section><!--.entry-body -->
+<?php endif; ?>

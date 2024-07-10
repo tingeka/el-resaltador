@@ -21,6 +21,7 @@ $args = cmlt_er_recursive_parse_args(
             'classes' => 'flex flex-col justify-center w-full gap-4'
         ],
         'category' => [
+            'display' => true,
             'ul' => [
                 'classes' => '',
             ],
@@ -37,6 +38,7 @@ $args = cmlt_er_recursive_parse_args(
             'link'    => '',
         ],
         'excerpt' => [
+            'display' => false,
             'content' => '',
             'classes' => '',
         ],

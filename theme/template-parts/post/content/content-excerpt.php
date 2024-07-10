@@ -10,37 +10,58 @@
 ?>
 
 <?php 
-    $args = cmlt_er_recursive_parse_args(
-        $args,
-        [
+
+// echo '<pre>';
+// var_dump( $args );
+// echo '</pre>';
+
+$args = cmlt_er_recursive_parse_args(
+    $args,
+    [
+        'container' => [
+            'classes' => 'flex flex-col md:flex-row gap-8 max-w-screen-xl mx-auto my-8',
+        ],
+        'thumbnail' => [
+            'container' => [
+                'classes' => 'w-full shrink-0 md:w-80 md:aspect-video',
+            ],
+            'figure' => [
+                'classes' => ''
+            ],
+            'link' => [
+                'classes' => 'flex w-full aspect-video'
+            ],
+            'image' => [
+                'size' => 'large',
+                'classes' => 'object-cover'
+            ]
+        ],
+        'content' => [
+            'container' => [
+                'classes' => 'flex flex-col gap-4 w-full grow',
+            ],
             'header' => [
+                'container' => [
+                    'classes' => '',
+                ],
                 'category' => [
-                    'container' => [
-                        'classes' => ''
+                    'mode' => 'light',
+                    'display' => true,
+                    'ul' => [
+                        'classes' => '',
                     ],
-                    'wrapper' => [
-                        'classes' => ''
+                    'li' => [
+                        'classes' => '',
                     ],
-                    'list' => [
-                        'classes' => ''
+                    'a' => [
+                        'classes' => '',
                     ],
-                    'item' => [
-                        'classes' => ''
-                    ]
                 ],
                 'title' => [
-                    'container' => [
-                        'classes' => ''
-                    ],
-                    'wrapper' => [
-                        'classes' => ''
-                    ],
-                    'list' => [
-                        'classes' => ''
-                    ],
-                    'item' => [
-                        'classes' => ''
-                    ]
+                    'content' => '',
+                    'tag'     => '',
+                    'link'    => '',
+                    'classes' => '',
                 ],
             ],
             'body' => [
@@ -65,48 +86,58 @@
                 ]
             ]
         ]
-    );
+    ]
+);
+
+// echo '<pre>';
+// var_dump( $args );
+// echo '</pre>';
+
+$container_atrr = $args['container']['classes'];
+
+$thumbnail_container_attr = cmlt_er_generate_attr_string(
+    [
+        'class' => $args['thumbnail']['container']['classes']
+    ]
+);
+
+$content_container_atrr = cmlt_er_generate_attr_string(
+    [
+        'class' => $args['content']['container']['classes']
+    ]
+);
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'flex flex-col md:flex-row gap-8 max-w-screen-xl mx-auto my-8'); ?>>
-    <section class="w-full shrink-0 md:w-80 md:aspect-video">
-        <?php 
-            cmlt_er_post_thumbnail( 
-                [
-                    'figure' => [
-                        'classes' => ''
-                    ],
-                    'link' => [
-                        'classes' => 'flex w-full aspect-video'
-                    ],
-                    'image' => [
-                        'size' => 'large',
-                        'classes' => 'object-cover'
-                    ]
-                ] 
-            ); 
+<article id="post-<?php the_ID(); ?>" <?php post_class( $container_atrr ); ?>>
+    <section <?php echo $thumbnail_container_attr; ?>>
+        <?php
+            /* Post Thumbnail */
+            $post_thumbnail_params = $args['thumbnail'];
+            unset( $post_thumbnail_params['container'] );
+            cmlt_er_post_thumbnail( $post_thumbnail_params );
         ?>
     </section>
-    <section class="flex flex-col gap-4 w-full grow">
+    <section <?php echo $content_container_atrr; ?>>
         <?php
             /* Post Header */
+            
             get_template_part( 
                 'template-parts/post/sections/section', 
                 'header-excerpt', 
-                $args['header']
+                $args['content']['header']
             );
             /* Post Body */
             get_template_part( 
                 'template-parts/post/sections/section', 
                 'content-excerpt', 
-                $args['body']
+                $args['content']['body']
             ); 
             /* Post Footer */
             get_template_part( 
                 'template-parts/post/sections/section', 
                 'footer-excerpt', 
-                $args['footer']
+                $args['content']['footer']
             );
         ?>
     </section>

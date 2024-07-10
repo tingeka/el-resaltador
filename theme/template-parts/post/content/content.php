@@ -22,6 +22,7 @@
                         'classes' => ''
                     ],
                     'category' => [
+                        'display' => true,
                         'ul' => [
                             'classes' => '',
                         ],
@@ -39,7 +40,7 @@
                         'classes' => '',
                     ],
                     'excerpt' => [
-                        'display' => null,
+                        'display' => false,
                         'content' => '',
                         'classes' => '',
                     ],

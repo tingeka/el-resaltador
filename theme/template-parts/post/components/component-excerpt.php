@@ -14,13 +14,13 @@
 $args = cmlt_er_recursive_parse_args(
     $args,
     [
-        'display' => null,
+        'display' => true,
         'content' => get_the_excerpt(),
         'classes' => 'm-0 text-lg',
     ]
 );
 
-if ( $args['display'] !== null ) {
+if ( $args['display'] ) {
     
     $excerpt_content = $args['content'] !== '' 
     ? cmlt_er_content_tag( 
@@ -31,7 +31,6 @@ if ( $args['display'] !== null ) {
         ] 
         )
     : '';
-
 
     echo $excerpt_content;
 

@@ -25,7 +25,7 @@ $args = cmlt_er_recursive_parse_args(
         'content' => get_the_title(),
         'tag'     => 'h1',
         'link'    => '',
-        'classes' => 'entry-title m-0',
+        'classes' => 'm-0',
     ]
 );
 
@@ -38,7 +38,7 @@ $title_html = cmlt_er_content_tag(
     $tag,
     $content,
     [
-        'class' => $classes,
+        'class' => rtrim( 'entry-title '. $classes ),
     ]
 );
 

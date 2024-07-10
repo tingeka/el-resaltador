@@ -25,7 +25,7 @@
 	@apply max-w-content text-3xl font-extrabold text-neutral-900;
 }
 .entry-title {
-	@apply mx-auto mb-6;
+	@apply my-0;
 }
 .editor-styles-wrapper .entry-title.post-type-post {
 	@apply max-w-[50rem]

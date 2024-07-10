@@ -35,7 +35,15 @@ get_header();
 						// Start the Loop.
 						while ( have_posts() ) :
 							the_post();
-							get_template_part( 'template-parts/post/content/content', 'excerpt' );
+							get_template_part( 'template-parts/post/content/content', 'excerpt', [
+								'content' => [
+									'header' => [
+										'category' => [
+											'display' => false,
+										]
+									]
+								]
+							]);
 
 							// End the loop.
 						endwhile;
