@@ -45,7 +45,7 @@ $title_html = cmlt_er_content_tag(
     );
 
 $show_breadcrumbs = $args['breadcrumbs']['display'];
-$breadcrumbs_args = $show_breadcrumbs ? $args['breadcrumbs'] : [];
+$breadcrumbs_args = $show_breadcrumbs ? $args['breadcrumbs'] : []; // fix this, doesnt make sense
 
 ?>
 

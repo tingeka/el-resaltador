@@ -20,6 +20,10 @@ $args = cmlt_er_recursive_parse_args(
         'wrapper'   => [
             'classes' => 'flex flex-col justify-center w-full gap-4'
         ],
+        'breadcrumbs' => [
+            'display' => false,
+            'classes' => 'py-4 text-sm',
+        ],
         'category' => [
             'display' => true,
             'ul' => [
@@ -76,11 +80,16 @@ $footer_container_attr = cmlt_er_generate_attr_string(
     ] 
 );
 
+$show_breadcrumbs = $args['breadcrumbs']['display'];
+
 ?>
 
 <section <?php echo $container_attr; ?>>
     <div <?php echo $wrapper_attr; ?>>
         <?php
+            if ( $show_breadcrumbs ):
+                get_template_part( 'template-parts/global/components/component', 'breadcrumbs', $args['breadcrumbs'] );
+            endif;
             /* Post Category */
             get_template_part( 
                 'template-parts/post/components/component',

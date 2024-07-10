@@ -21,6 +21,10 @@
                     'wrapper'   => [
                         'classes' => ''
                     ],
+                    'breadcrumbs' => [
+                        'display' => true,
+                        'classes' => ''
+                    ],
                     'category' => [
                         'display' => true,
                         'ul' => [
