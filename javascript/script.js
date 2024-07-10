@@ -8,3 +8,5 @@
  * For esbuild documentation, please see:
  * https://esbuild.github.io/
  */
+
+require('./flowbite/index.js');

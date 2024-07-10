@@ -12,6 +12,7 @@ module.exports = {
 		'./theme/**/*.php',
 		'./gutenberg/**/**/*.js',
 		'./gutenberg/**/**/**/*.js',
+		"./node_modules/flowbite/**/*.js"
 	],
 	theme: {
 		// Extend the default Tailwind theme.
@@ -44,6 +45,8 @@ module.exports = {
 
 		// Extract colors and widths from `theme.json`.
 		require('@_tw/themejson'),
+		// Requires Flowbite
+		require('flowbite/plugin')
 
 		// Uncomment below to add additional first-party Tailwind plugins.
 		// require('@tailwindcss/forms'),

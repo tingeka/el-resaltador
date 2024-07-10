@@ -67,6 +67,7 @@
 		"@10up/block-components": "^1.18.1",
 		"@wordpress/blocks": "^12.34.0",
 		"@wordpress/scripts": "^27.8.0",
+		"flowbite": "^2.4.1",
 		"react-select": "^5.8.0"
 	}
 }
