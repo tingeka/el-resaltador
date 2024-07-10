@@ -27,7 +27,7 @@ if ( ! function_exists( 'cmlt_er_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( is_singular() ) :
+		if ( is_singular() && !is_front_page() ) :
             echo cmlt_er_content_tag(
                 'figure',
                 get_the_post_thumbnail(
