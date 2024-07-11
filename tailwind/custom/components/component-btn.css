@@ -1,0 +1,18 @@
+/**
+ * Utility CSS classes for common button styles.
+ *
+ * - `.btn`: Applies basic button styles including padding, rounded corners, font weight, and size.
+ * - `.btn-primary`: Applies a primary button style with a background color of `bg-primary` and text color of `text-foreground`. Includes a hover transition to `bg-primary/70`.
+ * - `.btn-neutral`: Applies a neutral button style with a background color of `bg-gray-200` and text color of `text-foreground`. Includes a hover transition to `bg-gray-300`.
+ */
+.btn {
+	@apply py-2 px-4 rounded font-bold text-sm sm:text-base min-h-10
+ }
+
+ .btn-primary {
+	@apply bg-primary text-foreground transition-colors hover:bg-primary/70
+ }
+
+ .btn-neutral {
+	@apply bg-gray-200 text-foreground transition-colors hover:bg-gray-300
+ }

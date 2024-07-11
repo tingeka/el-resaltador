@@ -1,0 +1,11 @@
+/**
+ * Applies utility classes to the `.cta` element and its child elements.
+ * - The `.cta` element is set to have a minimum height (`h-min`).
+ * - The child elements of `.cta` have their margin set to 0 (`m-0`).
+ */
+.cta {
+	@apply h-min
+}
+ .cta > * {
+	@apply m-0
+ }

@@ -1,0 +1,27 @@
+/**
+ * Styles for the pagination component.
+ *
+ * The pagination component is used to display a set of page numbers and navigation links
+ * for navigating between pages of content.
+ *
+ * The `.nav-links` class applies styles to the container for the page numbers and navigation links.
+ * The `.page-numbers` class applies styles to each individual page number or navigation link.
+ * The `.current` class is applied to the currently selected page number.
+ * The `.next` and `.prev` classes are applied to the "Next" and "Previous" navigation links.
+ */
+nav.pagination .nav-links {
+	@apply flex justify-center items-center py-8 px-4 text-base
+}
+
+nav.pagination .nav-links .page-numbers {
+	@apply flex items-center justify-center p-2 w-8 h-8;
+}
+
+nav.pagination .nav-links .page-numbers.next,
+nav.pagination .nav-links .page-numbers.prev {
+	@apply font-bold;
+}
+
+nav.pagination .nav-links .page-numbers.current {
+	@apply border border-foreground/30 rounded
+}

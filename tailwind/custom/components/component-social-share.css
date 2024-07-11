@@ -1,0 +1,37 @@
+/**
+ * Styles for the social share component wrapper.
+ *
+ * The `.social-share__wrapper` class applies the following styles:
+ * - Sets the background color to `bg-background`.
+ * - Adds a top margin of `mt-8`.
+ * - On extra-large screens, makes the wrapper sticky with a top offset of `xl:sticky xl:top-24`.
+ * - On extra-large screens, aligns the wrapper to the start of the flex container `xl:flex xl:self-start`.
+ *
+ * The `.social-share__wrapper .scriptlesssocialsharing` class applies the following styles:
+ * - Removes the top and bottom margin `my-0`.
+ * - Displays the buttons in a flex layout with a gap of `flex gap-4`.
+ * - Wraps the buttons if they don't fit on a single line `flex-wrap`.
+ * - Aligns the buttons to the start of the flex container `items-start`.
+ *
+ * The `.social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__heading` class applies the following styles:
+ * - Sets the font weight to semi-bold `font-semibold`.
+ * - Sets the font size to `text-xl`.
+ * - Sets the text color to 70% of the `foreground` color `text-foreground/70`.
+ *
+ * The `.social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__buttons` class applies the following styles:
+ * - On extra-large screens, limits the maximum width of the buttons to the minimum required `xl:max-w-min`.
+ * - On extra-large screens, displays the buttons in a vertical flex layout `xl:flex-col`.
+ * - On extra-large screens, prevents the buttons from wrapping `xl:flex-nowrap`.
+ */
+.social-share__wrapper {
+	@apply bg-background mt-8 xl:sticky xl:top-24 xl:flex xl:self-start 
+ }
+ .social-share__wrapper .scriptlesssocialsharing {
+	@apply my-0 flex gap-4 flex-wrap items-start
+ }
+ .social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__heading {
+	@apply font-semibold text-xl text-foreground/70
+ }
+ .social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__buttons {
+	@apply xl:max-w-min xl:flex-nowrap xl:flex-col
+ }

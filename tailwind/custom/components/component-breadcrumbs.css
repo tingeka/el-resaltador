@@ -1,0 +1,14 @@
+ /**
+  * Styles for the breadcrumbs component.
+  *
+  * The `.breadcrumbs` class applies a text color of 70% of the foreground color and a semi-bold font weight.
+  *
+  * The `.breadcrumbs .current-item` class applies a normal font weight to the current breadcrumb item.
+  */
+ .breadcrumbs {
+	@apply text-foreground/70 font-semibold
+}
+
+.breadcrumbs .current-item {
+	@apply font-normal
+}

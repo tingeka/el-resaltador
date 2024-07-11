@@ -1,0 +1,46 @@
+/**
+ * Styles for the navbar component, including mobile and desktop layouts.
+ * 
+ * The mobile navbar styles define the appearance and behavior of the navbar items,
+ * including the main list items and any sub-items. The desktop navbar styles
+ * define the appearance and behavior of the dropdown menu items, including
+ * the main dropdown items and any sub-items.
+ */
+
+/* Mobile navbar */
+
+.navbar-list-item > span,
+.navbar-list-item > a > span {
+	@apply font-bold py-2 pl-4 cursor-pointer
+}
+
+.navbar-list-item a {
+	@apply flex items-center transition-colors hover:bg-gray-300
+}
+
+.navbar-list-item .navbar-list-item__sub-item a {
+	@apply py-2 pl-4
+}
+
+.navbar-list-item .navbar-list-item__sub-item li {
+	@apply ml-4 border-l border-gray-300
+}
+
+/* Desktop navbar */
+
+.navbar-dropdown-item .navbar-dropdown__btn,
+.navbar-dropdown-item a {
+	@apply flex flex-row items-center py-2 px-4 rounded font-bold transition-colors hover:bg-gray-300
+}
+
+.navbar-dropdown-item .navbar-dropdown-item__sub-item a {
+	@apply font-normal
+}
+
+.navbar-dropdown-container {
+	@apply z-10 hidden font-normal bg-background rounded shadow w-44
+}
+
+.navbar-dropdown-item__sub-item {
+	@apply text-sm font-medium text-foreground
+}
