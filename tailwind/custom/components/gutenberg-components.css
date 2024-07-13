@@ -15,10 +15,3 @@
 .wp-block-post-terms {
     @apply font-mono font-medium underline
 }
-
- /**
-  * Block styles
-  */
-
-@import "../../../gutenberg/src/block-styles/index.css"
- 

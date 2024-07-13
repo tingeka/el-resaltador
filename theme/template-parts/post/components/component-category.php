@@ -41,7 +41,7 @@ $args = cmlt_er_recursive_parse_args(
             'classes' => 'p-0',
         ],
         'a' => [
-            'classes' => 'relative border-image-gradient',
+            'classes' => 'post-cat',
         ]
     ]
 );
@@ -50,10 +50,10 @@ $mode = $args['mode'];
 
 switch ( $mode ):
     case 'dark':
-        $a_classes = $args['a']['classes'] . ' border-image-gradient-primary text-background';
+        $a_classes = $args['a']['classes'] . ' post-cat-dark';
         break;
-    default:
-        $a_classes = $args['a']['classes'] . ' border-image-gradient-foreground text-foreground';
+    case 'light':
+        $a_classes = $args['a']['classes'] . ' post-cat-light';
         break;
 endswitch;
 
