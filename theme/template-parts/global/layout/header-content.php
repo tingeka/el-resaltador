@@ -126,9 +126,12 @@ $menu = $check ? cmlt_er_get_menu_array($menu_location) : [];
 						'classes' => '',
 					],
 					'icon' => [
-						'display' => true,
-						'name'     => 'search',
-						'classes' => '',
+						'display' 	=> true,
+						'type' 		=> 'solid',
+						'name' 		=> 'magnifying-glass',
+						'id'     	=> 'cmlt_er_fa_solid_magnifying-glass',
+						'size' 		=> '',
+						'classes' 	=> '',
 					],
 					'text' => [
 						'display' => true,
