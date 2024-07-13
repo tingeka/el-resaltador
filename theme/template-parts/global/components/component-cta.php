@@ -45,6 +45,7 @@
                 autogestionado
             </span>
         </p>
-        <a href="/suscribite" class="btn btn-primary">Apoyanos</a>
+        <p>La comunicación la construimos entre todxs.</p>
+        <a href="/suscribite" class="btn btn-primary">Suscribite acá</a>
     </div>
 </div>
