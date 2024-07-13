@@ -102,7 +102,7 @@ $container_attr = cmlt_er_generate_attr_string(
                             'classes' => 'flex flex-col'
                         ],
                         'items'      => [
-                            'classes' => 'relative py-4 text-xl font-semibold after-title-gradient',
+                            'classes' => 'relative py-4 text-xl font-semibold separator-gradient',
                             'data' => $latests_posts_data
                         ],
                     ]

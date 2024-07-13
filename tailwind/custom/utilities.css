@@ -14,9 +14,10 @@
  /**
  *
  */
- .after-title-gradient {
-	@apply after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-gradient-to-r after:from-foreground after:to-transparent
- }
+ .separator-gradient {
+    border-image: linear-gradient(to right, theme(colors.foreground) 0%, transparent 100%) 1 stretch;
+    border-bottom:2px solid;
+  }
 
  .text-inherit {
    color: inherit;

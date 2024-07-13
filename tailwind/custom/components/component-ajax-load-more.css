@@ -1,0 +1,12 @@
+.wp-block-ajax-load-more-core .alm-listing {
+	@apply ps-0 pe-0 m-0 list-none
+}
+
+.wp-block-ajax-load-more-core .alm-listing .entry-header {
+	@apply p-0
+}
+
+.wp-block-ajax-load-more-core .alm-listing a.url,
+.wp-block-ajax-load-more-core .alm-listing header a:has(h2) {
+	@apply no-underline text-inherit
+}

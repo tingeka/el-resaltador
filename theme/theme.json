@@ -20,6 +20,11 @@
 					"name": "Primary 50"
 				},
 				{
+					"slug": "primary-300",
+					"color": "#F8FF41",
+					"name": "Primary 300"
+				},
+				{
 					"slug": "primary-light",
 					"color": "#f8ff41",
 					"name": "Primary Light"
@@ -68,7 +73,7 @@
 			"gradients": [
 				{
 				"slug": "foreground-to-background",
-				"gradient": "linear-gradient(90deg, var(--wp--preset--color--foreground), var(--wp--preset--color--background))",
+				"gradient": "linear-gradient(90deg, rgba(28, 28, 28, 1) 0%, rgba(239, 239, 239, 1) 100%)",
 				"name": "Foreground to background"
 				}
 			]

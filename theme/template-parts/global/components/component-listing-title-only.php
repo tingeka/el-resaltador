@@ -20,7 +20,7 @@ $args = cmlt_er_recursive_parse_args(
             'content' => '',
             'tag'     => 'h2',
             'link'    => '',
-            'classes' => 'relative text-2xl my-0 py-4 font-semibold after-title-gradient',
+            'classes' => 'relative text-2xl my-0 py-4 font-semibold separator-gradient',
         ],
         'listing' => [
             'container' => [

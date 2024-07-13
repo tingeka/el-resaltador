@@ -7,16 +7,3 @@
  *
  * — from https://tailwindcss.com/docs/plugins#adding-components
  */
- 
- /* Buttons */
- @import './component-btn.css';
-/* CTA */
-@import './component-cta.css';
-/* Social Share */
-@import './component-social-share.css';
-/* Pagination */
-@import './component-pagination.css';
-/* Breadcrumbs */
-@import './component-breadcrumbs.css';
-/* Navbar */
-@import "./component-navbar.css";
