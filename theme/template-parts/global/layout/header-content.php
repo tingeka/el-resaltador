@@ -18,7 +18,7 @@ $menu = $check ? cmlt_er_get_menu_array($menu_location) : [];
 
 ?>
 
-<header id="masthead" class="relative h-16 w-full max-w-screen-xl mx-auto px-4 py-2 flex justify-between bg-background z-10 sticky <?php echo is_user_logged_in() ? 'top-8' : 'top-0'; ?>">
+<header id="masthead" class="relative h-16 w-full max-w-screen-xl mx-auto px-4 py-2 flex justify-between bg-background z-30 sticky <?php echo is_user_logged_in() ? 'top-8' : 'top-0'; ?>">
 
 	<div>
 		<a href="/">
