@@ -9,4 +9,7 @@
  * https://esbuild.github.io/
  */
 
+/**
+ * Flowbite  
+ */ 
 require('./flowbite/index.js');

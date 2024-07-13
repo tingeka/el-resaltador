@@ -34,6 +34,7 @@
 		"development:gutenberg:blocks-extensions": "wp-scripts start --webpack-src-dir=\"./gutenberg/src/block-extensions\" --output-path=\"./theme/gutenberg/block-extensions\"",
 		"development:gutenberg:blocks-formats": "wp-scripts start --webpack-src-dir=\"./gutenberg/src/block-formats\" --output-path=\"./theme/gutenberg/block-formats\"",
 		"development:gutenberg:blocks-styles": "wp-scripts start --webpack-src-dir=\"./gutenberg/src/block-styles\" --output-path=\"./theme/gutenberg/block-styles\"",
+		"development:icons": "node node_scripts/copy-fa-icons.js",
 		"development": "run-p \"development:**\"",
 		"dev": "npm run development",
 		"watch:tailwind:frontend": "npm run development:tailwind:frontend -- --watch",
@@ -44,6 +45,7 @@
 		"watch:gutenberg:blocks-extensions": "npm run development:gutenberg:blocks-extensions",
 		"watch:gutenberg:blocks-formats": "npm run development:gutenberg:blocks-formats",
 		"watch:gutenberg:blocks-styles": "npm run development:gutenberg:blocks-styles",
+		"watch:icons": "chokidar \"./theme/**/*.php\" -c \"npm run development:icons\"",
 		"watch:esbuild": "npm run development:esbuild -- --watch",
 		"watch": "run-p \"watch:**\"",
 		"lint:eslint": "npx eslint theme/",
@@ -65,6 +67,7 @@
 	"prettier": "@wordpress/prettier-config",
 	"dependencies": {
 		"@10up/block-components": "^1.18.1",
+		"@fortawesome/fontawesome-free": "^6.5.2",
 		"@wordpress/blocks": "^12.34.0",
 		"@wordpress/scripts": "^27.8.0",
 		"flowbite": "^2.4.1",
