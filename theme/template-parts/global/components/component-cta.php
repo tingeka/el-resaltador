@@ -10,7 +10,7 @@
  ?>
 
 <?php
-    $args = wp_parse_args(
+    $args = cmlt_er_recursive_parse_args(
         $args,
         [
             'mode' => 'dark'

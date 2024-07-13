@@ -11,13 +11,13 @@
 
 <?php
     
-    $args = wp_parse_args(
+    $args = cmlt_er_recursive_parse_args(
         $args,
         [   
             'classes'   => 'text-foreground/70',
         ]
     );
-    
+
     $classes = $args['classes'];
 
     echo cmlt_er_posted_on( $classes );
