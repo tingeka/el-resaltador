@@ -1,8 +1,0 @@
-/**
- * 
- * Custom styles for separator block.
- *
- */
-.is-style-separator-gradient {
-    @apply border-none h-px bg-gradient-to-r from-foreground to-background
-}
