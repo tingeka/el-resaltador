@@ -1,0 +1,48 @@
+.home-resaltadas .home-resaltadas-item-wrapper {
+ @apply aspect-[3/4] rounded-lg overflow-hidden
+}
+
+.home-resaltadas .home-resaltadas-item-wrapper .wp-block-post-featured-image {
+    @apply absolute top-0 left-0 w-full h-full
+}
+
+.home-resaltadas .home-resaltadas-item-wrapper figure img {
+    @apply h-full object-cover
+}
+
+.home-resaltadas .home-resaltadas-item-wrapper > div {
+    @apply relative h-full p-4 flex flex-col justify-end gap-2 bg-gradient-to-t from-foreground from-30% to-transparent
+}
+
+.home-resaltadas .home-resaltadas-item-wrapper > div ul {
+    @apply 
+    list-none
+    m-0
+    p-0
+}
+.home-resaltadas .home-resaltadas-item-wrapper > div ul li {
+    @apply 
+    post-cat
+    post-cat-dark
+}
+.home-resaltadas .home-resaltadas-item-wrapper > div h2 {
+    @apply 
+    flex
+    items-end
+    my-0
+}
+
+.home-resaltadas .home-resaltadas-item-wrapper > div h2 a {
+    @apply 
+    text-2xl 
+    text-background 
+    font-bold
+    no-underline
+}
+.home-resaltadas .home-resaltadas-item-wrapper > div h2 a {
+    @apply
+    before:content-['']
+    before:absolute
+    before:inset-0
+    before:z-20
+}
