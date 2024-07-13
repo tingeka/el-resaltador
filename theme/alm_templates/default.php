@@ -42,7 +42,7 @@ get_template_part(
                 ],
                 'title' => [
                     'content' => '',
-                    'tag'     => '',
+                    'tag'     => 'h2',
                     'link'    => get_the_permalink(),
                     'classes' => 'text-2xl text-foreground',
                 ],
