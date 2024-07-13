@@ -11,10 +11,6 @@
 
 <?php 
 
-// echo '<pre>';
-// var_dump( $args );
-// echo '</pre>';
-
 $args = cmlt_er_recursive_parse_args(
     $args,
     [
@@ -88,10 +84,6 @@ $args = cmlt_er_recursive_parse_args(
         ]
     ]
 );
-
-// echo '<pre>';
-// var_dump( $args );
-// echo '</pre>';
 
 $container_atrr = $args['container']['classes'];
 
