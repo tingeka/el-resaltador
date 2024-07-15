@@ -32,26 +32,46 @@ get_header();
 					] 
 				); 
 			?>
+			<section class="flex flex-col gap-8 max-w-screen-xl mx-auto lg:flex-row px-4">
+				<div>
+					<?php
+						// Start the Loop.
+						while ( have_posts() ) :
+							the_post();
+							get_template_part( 'template-parts/post/content/content', 'excerpt', [
+								'content' => [
+									'header' => [
+										'category' => [
+											'display' => false,
+										]
+									]
+								]
+							]);
 
-			<?php
-			// Start the Loop.
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/post/content/content', 'excerpt' );
+							// End the loop.
+						endwhile;
 
-				// End the loop.
-			endwhile;
+						// Previous/next page navigation.
+						cmlt_er_the_posts_navigation();
 
-			// Previous/next page navigation.
-			cmlt_er_the_posts_navigation();
+					else :
 
-		else :
+						// If no content, include the "No posts found" template.
+						get_template_part( 'template-parts/content/content', 'none' );
 
-			// If no content is found, get the `content-none` template part.
-			get_template_part( 'template-parts/global/content/content', 'none' );
-
-		endif;
-		?>
+					endif;
+					?>
+				</div>
+				<div>
+					<?php
+						get_template_part( 
+							'template-parts/global/components/component', 
+							'cta',
+							[]
+						) 
+					?>
+				</div>
+			</section>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 

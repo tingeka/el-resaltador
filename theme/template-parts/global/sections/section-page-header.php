@@ -64,11 +64,13 @@ $breadcrumbs_args = $show_breadcrumbs ? $args['breadcrumbs'] : []; // fix this, 
         endif;
     ?>
     <?php echo $title_html; ?>
+    <div class="mt-2 max-w-2xl">
     <?php 
         if ( $args['search_form']['display'] ) :
-            get_search_form();
-        endif;
+                get_search_form();
+            endif;
     ?>
+    </div>
     <?php
     if ( $args['excerpt']['display'] ) {
     
