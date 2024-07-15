@@ -10,14 +10,28 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-	<header class="entry-header">
-		<?php
-		if ( ! is_front_page() ) {
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		}
-		?>
-	</header><!-- .entry-header -->
+	
+	<?php
+	if (! is_front_page() ):
+		get_template_part( 
+			'template-parts/global/sections/section', 
+			'page-header', 
+			[
+				'title' => [
+					'content' => get_the_title(),
+				],
+				'breadcrumbs' => [
+					'display' => true,
+				],
+				'excerpt' => [
+					'display' => true,
+					'content' => get_the_excerpt(),
+					'classes' => 'max-w-[40rem] my-0 text-lg',
+				]
+			] 
+		);
+	endif;
+	?>
 
 	<?php cmlt_er_post_thumbnail(); ?>
 
@@ -33,26 +47,4 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers. */
-						__( 'Edit <span class="sr-only">%s</span>', 'el-resaltador' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-
 </article><!-- #post-<?php the_ID(); ?> -->

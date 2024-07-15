@@ -24,6 +24,14 @@ $args = cmlt_er_recursive_parse_args(
         'breadcrumbs' => [
             'display' => false,
             'classes' => '',
+        ],
+        'excerpt' => [
+            'display' => false,
+            'content' => '',
+            'classes' => '',
+        ],
+        'search_form' => [
+            'display' => false,
         ]
     ]
 );
@@ -56,4 +64,26 @@ $breadcrumbs_args = $show_breadcrumbs ? $args['breadcrumbs'] : []; // fix this, 
         endif;
     ?>
     <?php echo $title_html; ?>
+    <?php 
+        if ( $args['search_form']['display'] ) :
+            get_search_form();
+        endif;
+    ?>
+    <?php
+    if ( $args['excerpt']['display'] ) {
+    
+        $excerpt_content = $args['excerpt']['content'] !== '' 
+        ? cmlt_er_content_tag( 
+            'p', 
+            esc_html( $args['excerpt']['content'] ),
+            [ 
+                'class' => $args['excerpt']['classes'] 
+            ] 
+            )
+        : '';
+    
+        echo $excerpt_content;
+    
+    }
+    ?>
 </header><!-- .page-header -->

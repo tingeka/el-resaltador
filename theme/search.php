@@ -15,22 +15,29 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-				printf(
-					/* translators: 1: search result title. 2: search term. */
-					'<h1 class="page-title">%1$s <span>%2$s</span></h1>',
-					esc_html__( 'Search results for:', 'el-resaltador' ),
-					get_search_query()
-				);
-				?>
-			</header><!-- .page-header -->
+			<?php
+				get_template_part( 
+					'template-parts/global/sections/section', 
+					'page-header', 
+					[
+						'title' => [
+							'content' => cmlt_er_get_the_archive_title(),
+						],
+						'breadcrumbs' => [
+							'display' => true,
+						],
+						'search_form' => [
+							'display' => true,
+						]
+					] 
+				); 
+			?>
 
 			<?php
 			// Start the Loop.
 			while ( have_posts() ) :
 				the_post();
-				get_template_part( 'template-parts/global/content/content', 'excerpt' );
+				get_template_part( 'template-parts/post/content/content', 'excerpt' );
 
 				// End the loop.
 			endwhile;
