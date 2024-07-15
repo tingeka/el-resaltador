@@ -1,0 +1,16 @@
+#ajaxsearchlite1 .probox .proinput, div.asl_w .probox .proinput,
+#ajaxsearchlite1 .probox .proinput input, div.asl_w .probox .proinput input {
+    @apply !text-base !font-sans
+}
+
+div[id*='ajaxsearchliteres'].wpdreams_asl_results .results a.asl_res_url {
+    @apply !font-heading !font-bold !text-lg !text-foreground !leading-tight
+}
+
+div[id*='ajaxsearchliteres'].wpdreams_asl_results .results img.asl_image {
+    @apply !w-40 !h-40
+}
+
+div[id*='ajaxsearchliteres'].wpdreams_asl_results .results p.asl_desc {
+    @apply !text-sm
+}
