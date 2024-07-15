@@ -73,6 +73,13 @@ function cmlt_er_get_the_archive_title() {
         $tax   = get_taxonomy( get_queried_object()->taxonomy );
         /* traductores: Prefijo del título del archivo de taxonomía */
         $title = $prepend( esc_html_x( 'Taxonomía: ', 'Prefijo del título del archivo de taxonomía', 'el-resaltador' ) ) . $tax->labels->singular_name;
+	} elseif ( is_search() ) {
+        $query = esc_html( $_GET['s'] );
+		$query = cmlt_er_is_empty_value( $query )
+		? 'Buscar: '
+		: esc_html_x( 'Buscaste: ', 'Prefijo del título de resultados de búsqueda', 'el-resaltador' ) . $query;
+        /* traductores: Prefijo del título de resultados de búsqueda */
+        $title = $query;
     } else {
         /* traductores: Título genérico de archivo */
         $title = esc_html_x( 'Archivos:', 'Título genérico de archivo', 'el-resaltador' );
@@ -81,6 +88,36 @@ function cmlt_er_get_the_archive_title() {
     return $title;
 }
 add_filter( 'get_the_archive_title', 'cmlt_er_get_the_archive_title' );
+
+/**
+ * Filters the search query to only include posts.
+ *
+ * This function is hooked to the `pre_get_posts` filter and modifies the search
+ * query to only include posts, excluding other post types.
+ *
+ * @param WP_Query $query The current query object.
+ * @return WP_Query The modified query object.
+ */
+function cmlt_er_search_filter($query) {
+    if ($query->is_search) {
+        $query->set('post_type',array('post'));
+    }
+return $query;
+}
+add_filter('pre_get_posts','cmlt_er_search_filter');
+
+/**
+ * Filter NavXT breadcrumbs output on search results page when no results are found.
+ */
+function cmlt_er_filter_navxt_template_empty_search( $trail ) {
+    // Check if we are on the search results page and there are no results
+    if ( is_search() && cmlt_er_is_empty_value( $_GET['s'] ) ) {
+        // Replace the breadcrumbs with a custom message or a different template
+		$trail->opt['Hsearch_template_no_anchor'] = '<span class="search current-item">Buscador</span>';
+    }
+    return $trail;
+}
+add_filter( 'bcn_before_fill', 'cmlt_er_filter_navxt_template_empty_search' );
 
 /**
  * Determines whether the post thumbnail can be displayed.
