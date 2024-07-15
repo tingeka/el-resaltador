@@ -121,6 +121,8 @@ if ( ! function_exists( 'cmlt_er_setup' ) ) :
 		// Add support
 		add_theme_support( 'align-wide' );
 
+		// Pages excerpt
+		add_post_type_support( 'page', 'excerpt' );
 	}
 endif;
 add_action( 'after_setup_theme', 'cmlt_er_setup' );
