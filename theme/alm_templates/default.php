@@ -5,11 +5,11 @@ get_template_part(
     'excerpt',
     [
         'container' => [
-            'classes' => 'not-prose flex flex-col gap-4 md:gap-8 lg:flex-row',
+            'classes' => 'not-prose px-4 flex flex-col gap-4 md:gap-8 md:flex-row',
         ],
         'thumbnail' => [
             'container' => [
-                'classes' => 'w-full shrink-0 lg:w-1/2 lg:max-w-64 rounded-md overflow-hidden',
+                'classes' => 'w-full shrink-0 md:w-1/2 lg:max-w-64 rounded-md overflow-hidden',
             ],
             'figure' => [
                 'classes' => 'h-full'
