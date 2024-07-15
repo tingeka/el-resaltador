@@ -1,5 +1,9 @@
+.home-resaltadas ul.wp-block-post-template.columns-3 {
+    @apply grid-cols-1 md:grid-cols-3
+}
+
 .home-resaltadas .home-resaltadas-item-wrapper {
- @apply aspect-[3/4] rounded-lg overflow-hidden
+ @apply aspect-[3/4] xs:aspect-[4/3] md:aspect-[3/4] rounded-lg overflow-hidden
 }
 
 .home-resaltadas .home-resaltadas-item-wrapper .wp-block-post-featured-image {
@@ -11,7 +15,7 @@
 }
 
 .home-resaltadas .home-resaltadas-item-wrapper > div {
-    @apply relative h-full p-4 flex flex-col justify-end gap-2 bg-gradient-to-t from-foreground from-30% to-transparent
+    @apply relative w-full h-full p-4 flex flex-col justify-end gap-2 bg-gradient-to-t from-foreground from-30% to-transparent
 }
 
 .home-resaltadas .home-resaltadas-item-wrapper > div ul {

@@ -32,6 +32,11 @@ module.exports = {
 						...defaultTheme.fontFamily.mono,
 					],
 			},
+			screens:
+			{
+				'xs': '480px'
+			}
+
 
 		},
 	},
