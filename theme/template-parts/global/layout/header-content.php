@@ -17,7 +17,14 @@ $check = $locations && isset( $locations[ $menu_location ] );
 $menu = $check ? cmlt_er_get_menu_array($menu_location) : [];
 
 ?>
-
+<!-- Search Modal -->
+<?php 
+	get_template_part(
+		'template-parts/global/components/component',
+		'search-modal',
+		[]
+	);
+?>
 <header id="masthead" class="relative h-16 w-full max-w-screen-xl mx-auto px-4 py-2 flex justify-between bg-background z-30 sticky <?php echo is_user_logged_in() ? 'top-8' : 'top-0'; ?>">
 
 	<div>
@@ -116,15 +123,10 @@ $menu = $check ? cmlt_er_get_menu_array($menu_location) : [];
 			 * Link to Search Page 
 			 */  
 			get_template_part(
-				'template-parts/global/components/component-button',
-				'link',
+				'template-parts/global/components/component',
+				'button',
 				[
 					'type' => 'neutral',
-					'link' => [
-						'url'    => get_search_link(),
-						'title'  => 'Buscar',
-						'classes' => '',
-					],
 					'icon' => [
 						'display' 	=> true,
 						'type' 		=> 'solid',
@@ -138,6 +140,9 @@ $menu = $check ? cmlt_er_get_menu_array($menu_location) : [];
 						'content' => 'Buscar',
 						'classes' => 'hidden md:block',
 					],
+					'attr' => [
+						'data-a11y-dialog-show' => 'search-modal'
+					]
 				]
 			);
 			/**

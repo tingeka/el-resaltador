@@ -58,8 +58,10 @@
 		"production:tailwind:editor": "cross-env NODE_ENV=production npm run development:tailwind:editor -- --minify",
 		"production:tailwind:editor:extra": "cross-env NODE_ENV=production npm run development:tailwind:editor:extra -- --minify",
 		"production:esbuild": "npm run development:esbuild -- --minify",
-		"production:blocks": "wp-scripts build --webpack-copy-php --webpack-src-dir=\"./theme/blocks/src\" --output-path=\"./theme/blocks/build\"",
-		"production": "run-p \"production:**\"",
+		"production:gutenberg:blocks": "wp-scripts build --webpack-copy-php --webpack-src-dir=\"./gutenberg/src/blocks\" --output-path=\"./theme/gutenberg/blocks\"",
+		"production:gutenberg:blocks-extensions": "wp-scripts build --webpack-src-dir=\"./gutenberg/src/block-extensions\" --output-path=\"./theme/gutenberg/block-extensions\"",
+		"production:gutenberg:blocks-formats": "wp-scripts build --webpack-src-dir=\"./gutenberg/src/block-formats\" --output-path=\"./theme/gutenberg/block-formats\"",
+		"production:gutenberg:blocks-styles": "wp-scripts build --webpack-src-dir=\"./gutenberg/src/block-styles\" --output-path=\"./theme/gutenberg/block-styles\"",		"production": "run-p \"production:**\"",
 		"prod": "npm run production",
 		"zip": "node node_scripts/zip.js el-resaltador",
 		"bundle": "run-s production zip"
@@ -70,6 +72,8 @@
 		"@fortawesome/fontawesome-free": "^6.5.2",
 		"@wordpress/blocks": "^12.34.0",
 		"@wordpress/scripts": "^27.8.0",
+		"a11y-dialog": "^8.0.4",
+		"body-scroll-lock": "^4.0.0-beta.0",
 		"flowbite": "^2.4.1",
 		"react-select": "^5.8.0"
 	}
