@@ -16,3 +16,12 @@
  .btn-neutral {
 	@apply bg-gray-200 text-foreground transition-colors hover:bg-gray-300
  }
+
+ .wp-block-button .wp-element-button,
+ .wp-block-button.is-style-default .wp-element-button {
+	@apply btn btn-primary
+ }
+
+ .wp-block-button.is-style-neutral .wp-element-button {
+	@apply btn btn-neutral
+ }

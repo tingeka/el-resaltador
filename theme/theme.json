@@ -93,6 +93,38 @@
 				"mediumStep": 2,
 				"unit": "rem"
 			}
+		},
+		"blocks": {
+			"core/button": {
+				"appearanceTools": false,
+				"color": {
+					"background": false,
+					"text": false
+				},
+				"typography": {
+					"defaultFontSizes": false,
+					"customFontSize": false,
+					"fontStyle": false,
+					"fontWeight": false,
+					"fluid": false,
+					"letterSpacing": false,
+					"lineHeight": false,
+					"textTransform": false,
+					"fontSizes": [],
+					"textDecoration": false
+				},
+				"spacing": {
+					"margin": false,
+					"padding": false
+				},
+				"shadow": {
+					"defaultPresets": false,
+					"presets": []
+				},
+				"border": {
+					"radius": false
+				}
+			}
 		}
 	}
 }
