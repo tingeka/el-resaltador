@@ -6,61 +6,60 @@
  *
  * @package El_Resaltador
  */
-?>
 
-<?php
-$args = cmlt_er_recursive_parse_args(
-    $args,
-    [
-        'container' => [
-            'tag'     => 'div',
-            'classes' => 'w-full max-w-xl mx-auto flex flex-col px-4 py-16 gradient-primary-soft'
-        ],
-        'title' => [
-            'content' => '',
-            'tag'     => 'h2',
-            'link'    => '',
-            'classes' => 'relative text-2xl my-0 py-4 font-semibold separator-gradient',
-        ],
-        'listing' => [
-            'container' => [
-                'classes' => '',
-            ],
-            'wrapper'     => [
-                'classes' => '',
-            ],
-            'items'      => [
-                'tag'     => 'h4',
-                'classes' => '',
-                'data'    => []
-            ]
-        ]
-    ]
+$cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
+	$args,
+	array(
+		'container' => array(
+			'tag'     => 'div',
+			'classes' => 'w-full max-w-xl mx-auto flex flex-col px-4 py-16 gradient-primary-soft',
+		),
+		'title'     => array(
+			'content' => '',
+			'tag'     => 'h2',
+			'link'    => '',
+			'classes' => 'relative text-2xl my-0 py-4 font-semibold separator-gradient',
+		),
+		'listing'   => array(
+			'container' => array(
+				'classes' => '',
+			),
+			'wrapper'   => array(
+				'classes' => '',
+			),
+			'items'     => array(
+				'tag'     => 'h4',
+				'classes' => '',
+				'data'    => array(),
+			),
+		),
+	)
 );
 
-$container_attr = cmlt_er_generate_attr_string( 
-    [ 
-        'class' => $args['container']['classes'] 
-    ] 
+$cmlt_er_container_attr = cmlt_er_generate_attr_string(
+	array(
+		'class' => $cmlt_er_template_part_args['container']['classes'],
+	)
 );
 
-$title_tag = $args['title']['tag'];
-$title_content = $args['title']['content'];
-$title_classes = $args['title']['classes'];
+$cmlt_er_title_tag     = $cmlt_er_template_part_args['title']['tag'];
+$cmlt_er_title_content = $cmlt_er_template_part_args['title']['content'];
+$cmlt_er_title_classes = $cmlt_er_template_part_args['title']['classes'];
 
-$listing = cmlt_er_post_list( $args['listing'] );
+$cmlt_er_listing = cmlt_er_post_list( $cmlt_er_template_part_args['listing'] );
 
-if ( !empty( $listing ) ): ?>
-    <div <?php echo $container_attr ?>>
-        <?php
-            echo cmlt_er_content_tag(
-                $title_tag,
-                esc_html( $title_content ),
-                [
-                    'class' => $title_classes
-                ]
-            );
-            echo $listing; 
-        ?>
-    </div>
+if ( ! empty( $cmlt_er_listing ) ) :
+	?>
+	<div <?php echo $cmlt_er_container_attr;//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<?php
+			echo cmlt_er_content_tag(//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				$cmlt_er_title_tag,
+				esc_html( $cmlt_er_title_content ),
+				array(
+					'class' => $cmlt_er_title_classes,
+				)
+			);
+			echo $cmlt_er_listing;//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		?>
+	</div>
 <?php endif; ?>

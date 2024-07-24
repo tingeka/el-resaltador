@@ -32,9 +32,6 @@ if ( ! function_exists( 'cmlt_er_entry_meta' ) ) :
 			// Posted by.
 			cmlt_er_posted_by();
 
-			// Posted on.
-			// cmlt_er_posted_on();
-
 			/* translators: used between list items, there is a space after the comma. */
 			$categories_list = get_the_category_list( __( ', ', 'el-resaltador' ) );
 			if ( $categories_list ) {
@@ -217,10 +214,10 @@ if ( ! function_exists( 'cmlt_er_content_class' ) ) :
 	}
 endif;
 
-$theme_dir = get_template_directory();
-$template_tags = glob( $theme_dir . '/inc/template-tags/*.php' );
-foreach ( $template_tags as $template_tag ) {
-    if ( is_file( $template_tag ) ) {
-        require $template_tag;
-    }
+$cmlt_er_theme_dir     = get_template_directory();
+$cmlt_er_template_tags = glob( $cmlt_er_theme_dir . '/inc/template-tags/*.php' );
+foreach ( $cmlt_er_template_tags as $cmlt_er_template_tag ) {
+	if ( is_file( $cmlt_er_template_tag ) ) {
+		require $cmlt_er_template_tag;
+	}
 }

@@ -1,17 +1,24 @@
 <?php
 /**
- * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
+ * Block Render file
+ *
+ * This file is responsible for rendering the CTA block in the frontend.
+ *
+ * @package El_Resaltador
+ * @subpackage Gutenberg
+ * @since 1.0.0
  */
+
 ?>
 <div class="not-prose">
-<?php 
-    $type = $attributes['type'];
-    get_template_part(
-        'template-parts/global/components/component',
-        'cta',
-        [
-            'mode' => $type
-        ]
-    );
+<?php
+$cmlt_er_blocks_cta_type = $attributes['type'];
+get_template_part(
+	'template-parts/global/components/component',
+	'cta',
+	array(
+		'mode' => $cmlt_er_blocks_cta_type,
+	)
+);
 ?>
 </div>

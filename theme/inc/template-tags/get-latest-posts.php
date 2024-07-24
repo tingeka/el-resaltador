@@ -1,37 +1,49 @@
 <?php
 /**
+ * Get latests posts
+ *
+ * This file is responsible for fetching the latest posts from a specified post type,
+ * while excluding current one.
+ *
+ * @package El_Resaltador
+ * @subpackage Gutenberg
+ * @since 1.0.0
+ */
+
+/**
  * Retrieves the latest posts of a specified post type.
  *
- * @param string $post_type The post type to retrieve. Defaults to 'post'.
- * @param int $amount The number of posts to retrieve. Defaults to 10.
+ * @package El_Resaltador
+ * @param string   $post_type The post type to retrieve. Defaults to 'post'.
+ * @param int      $amount The number of posts to retrieve. Defaults to 10.
  * @param int|null $exclude The ID of the post to exclude from the results. Defaults to null.
  * @return array An array of post objects.
  */
 function cmlt_er_get_latest_posts( $post_type = 'post', $amount = 10, $exclude = null ) {
-    
-    $posts = [];
 
-    $args = [
-        'post_type'            => $post_type,
-        'posts_per_page'       => $amount,
-        'post_status'          => 'publish',
-        'ignore_sticky_posts'  => true,
-        'no_found_rows'        => true,
-    ];
+	$posts = array();
 
-    $recent_posts = new WP_Query( $args );
+	$args = array(
+		'post_type'           => $post_type,
+		'posts_per_page'      => $amount,
+		'post_status'         => 'publish',
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
+	);
 
-    $current_post_id = $exclude; // This assumes $exclude is the current post ID to be excluded
+	$recent_posts = new WP_Query( $args );
 
-    while ( $recent_posts->have_posts() ) {
-        $recent_posts->the_post();
+	$current_post_id = $exclude; // This assumes $exclude is the current post ID to be excluded.
 
-        if ( get_the_ID() !== $current_post_id ) {
-            $posts[] = $recent_posts->post; // Add the whole post object
-        }
-    }
+	while ( $recent_posts->have_posts() ) {
+		$recent_posts->the_post();
 
-    wp_reset_postdata();
+		if ( get_the_ID() !== $current_post_id ) {
+			$posts[] = $recent_posts->post; // Add the whole post object.
+		}
+	}
 
-    return $posts;
+	wp_reset_postdata();
+
+	return $posts;
 }

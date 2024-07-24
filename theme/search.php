@@ -16,39 +16,43 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<?php
-				get_template_part( 
-					'template-parts/global/sections/section', 
-					'page-header', 
-					[
-						'title' => [
+				get_template_part(
+					'template-parts/global/sections/section',
+					'page-header',
+					array(
+						'title'       => array(
 							'content' => cmlt_er_get_the_archive_title(),
-						],
-						'breadcrumbs' => [
+						),
+						'breadcrumbs' => array(
 							'display' => true,
-						],
-						'search_form' => [
+						),
+						'search_form' => array(
 							'display' => true,
-						]
-					] 
-				); 
+						),
+					)
+				);
 			?>
 			<section class="flex flex-col gap-8 max-w-screen-xl mx-auto lg:flex-row px-4">
 				<div>
 					<?php
 						// Start the Loop.
-						while ( have_posts() ) :
-							the_post();
-							get_template_part( 'template-parts/post/content/content', 'excerpt', [
-								'content' => [
-									'header' => [
-										'category' => [
+					while ( have_posts() ) :
+						the_post();
+						get_template_part(
+							'template-parts/post/content/content',
+							'excerpt',
+							array(
+								'content' => array(
+									'header' => array(
+										'category' => array(
 											'display' => false,
-										]
-									]
-								]
-							]);
+										),
+									),
+								),
+							)
+						);
 
-							// End the loop.
+						// End the loop.
 						endwhile;
 
 						// Previous/next page navigation.
@@ -64,12 +68,12 @@ get_header();
 				</div>
 				<div>
 					<?php
-						get_template_part( 
-							'template-parts/global/components/component', 
+						get_template_part(
+							'template-parts/global/components/component',
 							'cta',
-							[]
-						) 
-					?>
+							array()
+						)
+						?>
 				</div>
 			</section>
 		</main><!-- #main -->

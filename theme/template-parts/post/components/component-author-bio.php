@@ -7,26 +7,20 @@
  * @package El_Resaltador
  */
 
- ?>
-
-<?php
-
-$args = cmlt_er_recursive_parse_args(
-    $args,
-    [   
-        'classes' => '',
-    ]
+$cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
+	$args,
+	array(
+		'classes' => '',
+	)
 );
 
-$content = get_the_author_meta( 'description' );
-$classes = $args['classes'];
+$cmlt_er_content = get_the_author_meta( 'description' );
+$cmlt_er_classes = $cmlt_er_template_part_args['classes'];
 
-echo cmlt_er_content_tag(
-    'p',
-    esc_html( $content ),
-    [
-        'class' => $classes
-    ]
-)
-
-?>
+echo cmlt_er_content_tag( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	'p',
+	esc_html( $cmlt_er_content ),
+	array(
+		'class' => $cmlt_er_classes,
+	)
+);

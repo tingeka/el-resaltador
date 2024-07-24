@@ -12,23 +12,23 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 	<?php
-	if (! is_front_page() ):
-		get_template_part( 
-			'template-parts/global/sections/section', 
-			'page-header', 
-			[
-				'title' => [
+	if ( ! is_front_page() ) :
+		get_template_part(
+			'template-parts/global/sections/section',
+			'page-header',
+			array(
+				'title'       => array(
 					'content' => get_the_title(),
-				],
-				'breadcrumbs' => [
+				),
+				'breadcrumbs' => array(
 					'display' => true,
-				],
-				'excerpt' => [
+				),
+				'excerpt'     => array(
 					'display' => true,
 					'content' => get_the_excerpt(),
 					'classes' => 'max-w-[40rem] my-0 text-lg',
-				]
-			] 
+				),
+			)
 		);
 	endif;
 	?>

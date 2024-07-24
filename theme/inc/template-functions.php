@@ -37,55 +37,60 @@ add_filter( 'comment_form_defaults', 'cmlt_er_comment_form_defaults' );
  */
 function cmlt_er_get_the_archive_title() {
 
-    $prepend = function( $string ) {
-        return cmlt_er_content_tag(
-            'span',
-            $string,
-            [
-                'class' => 'sr-only',
-            ]
-        );
-    };
+	$prepend = function ( $str ) {
+		return cmlt_er_content_tag(
+			'span',
+			$str,
+			array(
+				'class' => 'sr-only',
+			)
+		);
+	};
 
-    if ( is_category() ) {
-        /* traductores: Prefijo del título del archivo de categoría */
-        $title = $prepend( esc_html_x( 'Sección: ', 'Prefijo del título del archivo de categoría', 'el-resaltador' ) ) . single_cat_title( '', false );
-    } elseif ( is_tag() ) {
-        /* traductores: Prefijo del título del archivo de etiquetas */
-        $title = $prepend( esc_html_x( 'Etiqueta: ', 'Prefijo del título del archivo de etiquetas', 'el-resaltador' ) ) . single_cat_title( '', false );
-    } elseif ( is_author() ) {
-        /* traductores: Prefijo del título del archivo de autor */
-        $title = $prepend( esc_html_x( 'Autor/a: ', 'Prefijo del título del archivo de autor', 'el-resaltador' ) ) . get_the_author_meta( 'display_name' );
-    } elseif ( is_year() ) {
-        /* traductores: Prefijo del título del archivo anual */
-        $title = $prepend( esc_html_x( 'Anuario: ', 'Prefijo del título del archivo anual', 'el-resaltador' ) ) . get_the_date( _x( 'Y', 'formato de fecha de los archivos anuales', 'el-resaltador' ) );
-    } elseif ( is_month() ) {
-        /* traductores: Prefijo del título del archivo mensual */
-        $title = $prepend( esc_html_x( 'Mes: ', 'Prefijo del título del archivo mensual', 'el-resaltador' ) ) . get_the_date( _x( 'F Y', 'formato de fecha de los archivos mensuales', 'el-resaltador' ) );
-    } elseif ( is_day() ) {
-        /* traductores: Prefijo del título del archivo diario */
-        $title = $prepend( esc_html_x( 'Día: ', 'Prefijo del título del archivo diario', 'el-resaltador' ) ) . get_the_date( _x( 'F j, Y', 'formato de fecha de los archivos diarios', 'el-resaltador' ) );
-    } elseif ( is_post_type_archive() ) {
-        $cpt   = get_post_type_object( get_queried_object()->name );
-        /* traductores: Prefijo del título del archivo de tipo de contenido */
-        $title = $prepend( esc_html_x( 'Archivo de tipo de contenido: ', 'Prefijo del título del archivo de tipo de contenido', 'el-resaltador' ) ) . $cpt->labels->singular_name;
-    } elseif ( is_tax() ) {
-        $tax   = get_taxonomy( get_queried_object()->taxonomy );
-        /* traductores: Prefijo del título del archivo de taxonomía */
-        $title = $prepend( esc_html_x( 'Taxonomía: ', 'Prefijo del título del archivo de taxonomía', 'el-resaltador' ) ) . $tax->labels->singular_name;
+	if ( is_category() ) {
+		/* traductores: Prefijo del título del archivo de categoría */
+		$title = $prepend( esc_html_x( 'Sección: ', 'Prefijo del título del archivo de categoría', 'el-resaltador' ) ) . single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		/* traductores: Prefijo del título del archivo de etiquetas */
+		$title = $prepend( esc_html_x( 'Etiqueta: ', 'Prefijo del título del archivo de etiquetas', 'el-resaltador' ) ) . single_cat_title( '', false );
+	} elseif ( is_author() ) {
+		/* traductores: Prefijo del título del archivo de autor */
+		$title = $prepend( esc_html_x( 'Autor/a: ', 'Prefijo del título del archivo de autor', 'el-resaltador' ) ) . get_the_author_meta( 'display_name' );
+	} elseif ( is_year() ) {
+		/* traductores: Prefijo del título del archivo anual */
+		$title = $prepend( esc_html_x( 'Anuario: ', 'Prefijo del título del archivo anual', 'el-resaltador' ) ) . get_the_date( _x( 'Y', 'formato de fecha de los archivos anuales', 'el-resaltador' ) );
+	} elseif ( is_month() ) {
+		/* traductores: Prefijo del título del archivo mensual */
+		$title = $prepend( esc_html_x( 'Mes: ', 'Prefijo del título del archivo mensual', 'el-resaltador' ) ) . get_the_date( _x( 'F Y', 'formato de fecha de los archivos mensuales', 'el-resaltador' ) );
+	} elseif ( is_day() ) {
+		/* traductores: Prefijo del título del archivo diario */
+		$title = $prepend( esc_html_x( 'Día: ', 'Prefijo del título del archivo diario', 'el-resaltador' ) ) . get_the_date( _x( 'F j, Y', 'formato de fecha de los archivos diarios', 'el-resaltador' ) );
+	} elseif ( is_post_type_archive() ) {
+		$cpt = get_post_type_object( get_queried_object()->name );
+		/* traductores: Prefijo del título del archivo de tipo de contenido */
+		$title = $prepend( esc_html_x( 'Archivo de tipo de contenido: ', 'Prefijo del título del archivo de tipo de contenido', 'el-resaltador' ) ) . $cpt->labels->singular_name;
+	} elseif ( is_tax() ) {
+		$tax = get_taxonomy( get_queried_object()->taxonomy );
+		/* traductores: Prefijo del título del archivo de taxonomía */
+		$title = $prepend( esc_html_x( 'Taxonomía: ', 'Prefijo del título del archivo de taxonomía', 'el-resaltador' ) ) . $tax->labels->singular_name;
 	} elseif ( is_search() ) {
-        $query = esc_html( $_GET['s'] );
-		$query = cmlt_er_is_empty_value( $query )
-		? 'Buscar: '
-		: esc_html_x( 'Buscaste: ', 'Prefijo del título de resultados de búsqueda', 'el-resaltador' ) . $query;
-        /* traductores: Prefijo del título de resultados de búsqueda */
-        $title = $query;
-    } else {
-        /* traductores: Título genérico de archivo */
-        $title = esc_html_x( 'Archivos:', 'Título genérico de archivo', 'el-resaltador' );
-    }
+		if ( isset( $_GET['s'] ) && isset( $_GET['_wpnonce'] ) ) {
+			$nonce = sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) );
+			if ( wp_verify_nonce( $nonce, 'search_nonce' ) ) {
+				$query = sanitize_text_field( wp_unslash( $_GET['s'] ) );
+				$query = cmlt_er_is_empty_value( $query )
+					? 'Buscar: '
+					: esc_html_x( 'Buscaste: ', 'Prefijo del título de resultados de búsqueda', 'el-resaltador' ) . $query;
+				/* traductores: Prefijo del título de resultados de búsqueda */
+				$title = $query;
+			}
+		}
+	} else {
+		/* traductores: Título genérico de archivo */
+		$title = esc_html_x( 'Archivos:', 'Título genérico de archivo', 'el-resaltador' );
+	}
 
-    return $title;
+	return $title;
 }
 add_filter( 'get_the_archive_title', 'cmlt_er_get_the_archive_title' );
 
@@ -98,24 +103,42 @@ add_filter( 'get_the_archive_title', 'cmlt_er_get_the_archive_title' );
  * @param WP_Query $query The current query object.
  * @return WP_Query The modified query object.
  */
-function cmlt_er_search_filter($query) {
-    if ($query->is_search) {
-        $query->set('post_type',array('post'));
-    }
-return $query;
+function cmlt_er_search_filter( $query ) {
+	if ( $query->is_search ) {
+		$query->set( 'post_type', array( 'post' ) );
+	}
+	return $query;
 }
-add_filter('pre_get_posts','cmlt_er_search_filter');
+add_filter( 'pre_get_posts', 'cmlt_er_search_filter' );
 
 /**
- * Filter NavXT breadcrumbs output on search results page when no results are found.
+ * Filters the NavXT breadcrumbs output on the search results page when no results are found.
+ *
+ * This function is hooked to the `bcn_before_fill` filter and modifies the breadcrumbs
+ * output to display a custom message when the search query is empty and there are no
+ * search results.
+ *
+ * @param object $trail The NavXT breadcrumbs trail object.
+ * @return object The modified breadcrumbs trail object.
  */
 function cmlt_er_filter_navxt_template_empty_search( $trail ) {
-    // Check if we are on the search results page and there are no results
-    if ( is_search() && cmlt_er_is_empty_value( $_GET['s'] ) ) {
-        // Replace the breadcrumbs with a custom message or a different template
-		$trail->opt['Hsearch_template_no_anchor'] = '<span class="search current-item">Buscador</span>';
-    }
-    return $trail;
+	if (
+		isset(
+			$_GET['s']
+		)
+		&& isset(
+			$_GET['_wpnonce']
+		)
+	) {
+		$nonce = sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) );
+		if ( wp_verify_nonce( $nonce, 'search_nonce' ) ) {
+			$search_query = sanitize_text_field( wp_unslash( $_GET['s'] ) );
+			if ( cmlt_er_is_empty_value( $search_query ) ) {
+				$trail->opt['Hsearch_template_no_anchor'] = '<span class="search current-item">Buscador</span>';
+			}
+		}
+	}
+	return $trail;
 }
 add_filter( 'bcn_before_fill', 'cmlt_er_filter_navxt_template_empty_search' );
 
@@ -154,10 +177,10 @@ function cmlt_er_continue_reading_link( $more_string ) {
 }
 
 // Filter the excerpt more link.
-// add_filter( 'excerpt_more', 'cmlt_er_continue_reading_link' );
+add_filter( 'excerpt_more', 'cmlt_er_continue_reading_link' );
 
 // Filter the content more link.
-// add_filter( 'the_content_more_link', 'cmlt_er_continue_reading_link' );
+add_filter( 'the_content_more_link', 'cmlt_er_continue_reading_link' );
 
 /**
  * Outputs a comment in the HTML5 format.
@@ -255,29 +278,44 @@ function cmlt_er_html5_comment( $comment, $args, $depth ) {
 	<?php
 }
 
+/**
+ * Renders the post sidebar pautas.
+ *
+ * This function checks if the `\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas` function exists, and if so, it calls that function to render the pautas content in the 'notas-lateral' location. If the function does not exist, it logs an error message.
+ *
+ * This function is hooked to the `cmlt_er_action_post_sidebar` action.
+ */
 function cmlt_er_render_post_sidebar_pautas() {
-    if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
-		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-lateral', true );
-	} else {
-        error_log( 'Function \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas does not exist.' );
-    }
+	if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
+		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-lateral', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }
 add_action( 'cmlt_er_action_post_sidebar', 'cmlt_er_render_post_sidebar_pautas' );
 
+/**
+ * Renders the post top pautas.
+ *
+ * This function checks if the `\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas` function exists, and if so, it calls that function to render the pautas content in the 'notas-superior' location. If the function does not exist, it logs an error message.
+ *
+ * This function is hooked to the `cmlt_er_action_post_before_content` action.
+ */
 function cmlt_er_render_post_top_pautas() {
-    if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
-		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-superior', true );
-	} else {
-        error_log( 'Function \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas does not exist.' );
-    }
+	if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
+		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-superior', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }
 add_action( 'cmlt_er_action_post_before_content', 'cmlt_er_render_post_top_pautas' );
 
+/**
+ * Renders the post after header pautas.
+ *
+ * This function checks if the `\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas` function exists, and if so, it calls that function to render the pautas content in the 'notas-debajo-tapa' location. If the function does not exist, it logs an error message.
+ *
+ * This function is hooked to the `cmlt_er_action_post_after_header` action.
+ */
 function cmlt_er_render_post_after_header_pautas() {
-    if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
-		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-debajo-tapa', true );
-	} else {
-        error_log( 'Function \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas does not exist.' );
-    }
+	if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
+		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-debajo-tapa', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
 }
 add_action( 'cmlt_er_action_post_after_header', 'cmlt_er_render_post_after_header_pautas' );

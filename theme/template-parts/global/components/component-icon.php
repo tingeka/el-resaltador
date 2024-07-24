@@ -11,62 +11,62 @@
 
 <?php
 
-$args = cmlt_er_recursive_parse_args(
-    $args,
-    [
-        'type' => '',
-        'name' => '',
-        'id' => '',
-        'size' => '',
-        'classes' => '',
-    ]
+$cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
+	$args,
+	array(
+		'type'    => '',
+		'name'    => '',
+		'id'      => '',
+		'size'    => '',
+		'classes' => '',
+	)
 );
 
-$icon_type = $args['type'];
-$icon_name = $args['name'];
-$icon_id = $args['id'];
-$icon_size = $args['size'];
-$icon_classes = $args['classes'];
+$cmlt_er_icon_type    = $cmlt_er_template_part_args['type'];
+$cmlt_er_icon_name    = $cmlt_er_template_part_args['name'];
+$cmlt_er_icon_id      = $cmlt_er_template_part_args['id'];
+$cmlt_er_icon_size    = $cmlt_er_template_part_args['size'];
+$cmlt_er_icon_classes = $cmlt_er_template_part_args['classes'];
 
-$icon_prefix = 'fa';
-$icon_name_prefixed = $icon_prefix . '-' . $icon_name;
-$icon_type_prefixed = $icon_prefix . '-' . $icon_type;
-$icon_size_prefixed = $icon_size ? $icon_prefix. '-'. $icon_size : '';
+$cmlt_er_icon_prefix        = 'fa';
+$cmlt_er_icon_name_prefixed = $cmlt_er_icon_prefix . '-' . $cmlt_er_icon_name;
+$cmlt_er_icon_type_prefixed = $cmlt_er_icon_prefix . '-' . $cmlt_er_icon_type;
+$cmlt_er_icon_size_prefixed = $cmlt_er_icon_size ? $cmlt_er_icon_prefix . '-' . $cmlt_er_icon_size : '';
 
-$icon_classes = rtrim(
-    implode(
-        ' ', 
-        [ 
-            'fa-icon',
-            $icon_name_prefixed, 
-            $icon_type_prefixed,
-            $icon_size_prefixed, 
-            $args[ 'classes' ] 
-        ] 
-    )
+$cmlt_er_icon_classes = rtrim(
+	implode(
+		' ',
+		array(
+			'fa-icon',
+			$cmlt_er_icon_name_prefixed,
+			$cmlt_er_icon_type_prefixed,
+			$cmlt_er_icon_size_prefixed,
+			$cmlt_er_template_part_args['classes'],
+		)
+	)
 );
 
-$icon_attr = cmlt_er_generate_attr_string(
-    [
-        'class' => $icon_classes,
-        'aria-hidden' => 'true',
-        'focusable' => 'false',
-        'role' => 'img',
-    ]
+$cmlt_er_icon_attr = cmlt_er_generate_attr_string(
+	array(
+		'class'       => $cmlt_er_icon_classes,
+		'aria-hidden' => 'true',
+		'focusable'   => 'false',
+		'role'        => 'img',
+	)
 );
 
-// Construct the path to the SVG file
-$icon_path = get_template_directory() . '/assets/icons/' . $icon_type . '/' . $icon_name . '.svg';
+// Construct the path to the SVG file.
+$cmlt_er_icon_path = get_template_directory() . '/assets/icons/' . $cmlt_er_icon_type . '/' . $cmlt_er_icon_name . '.svg';
 
-// Check if the file exists before trying to include it
-if ( file_exists( $icon_path ) ) {
-    // Output the SVG content directly
-    // Read SVG content
-    $svg_content = file_get_contents($icon_path);
+// Check if the file exists before trying to include it.
+if ( file_exists( $cmlt_er_icon_path ) ) {
+	// Output the SVG content directly.
+	// Read SVG content.
+	$cmlt_er_svg_content = file_get_contents( $cmlt_er_icon_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 
-    // Add additional attributes
-    $svg_content = str_replace('<svg', '<svg ' . $icon_attr, $svg_content);
+	// Add additional attributes.
+	$cmlt_er_svg_content = str_replace( '<svg', '<svg ' . $cmlt_er_icon_attr, $cmlt_er_svg_content );
 
-    // Output the modified SVG content
-    echo $svg_content;
+	// Output the modified SVG content.
+	echo $cmlt_er_svg_content;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }

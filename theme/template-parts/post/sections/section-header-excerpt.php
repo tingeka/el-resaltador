@@ -7,61 +7,61 @@
  * @package El_Resaltador
  */
 
- ?>
+?>
 
 <?php
 
-$args = cmlt_er_recursive_parse_args(
-    $args,
-    [
-        'container' => [
-            'classes' => 'entry-header flex flex-col gap-2',
-        ],
-        'category' => [
-            'mode' => 'light',
-            'display' => true,
-            'ul' => [
-                'classes' => '',
-            ],
-            'li' => [
-                'classes' => '',
-            ],
-            'a' => [
-                'classes' => '',
-            ],
-        ],
-        'title' => [
-            'content' => '',
-            'tag'     => '',
-            'link'    => '',
-            'classes' => '',
-        ],
-    ]
+$cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
+	$args,
+	array(
+		'container' => array(
+			'classes' => 'entry-header flex flex-col gap-2',
+		),
+		'category'  => array(
+			'mode'    => 'light',
+			'display' => true,
+			'ul'      => array(
+				'classes' => '',
+			),
+			'li'      => array(
+				'classes' => '',
+			),
+			'a'       => array(
+				'classes' => '',
+			),
+		),
+		'title'     => array(
+			'content' => '',
+			'tag'     => '',
+			'link'    => '',
+			'classes' => '',
+		),
+	)
 );
 
-$container_attr = cmlt_er_generate_attr_string( 
-    [ 
-        'class' => $args['container']['classes'] 
-    ] 
+$cmlt_er_container_attr = cmlt_er_generate_attr_string(
+	array(
+		'class' => $cmlt_er_template_part_args['container']['classes'],
+	)
 );
 
-$display_category = $args['category']['display'];
+$cmlt_er_display_category = $cmlt_er_template_part_args['category']['display'];
 
 ?>
 
-<header <?php echo $container_attr; ?>>
-        <?php
-            /* Post Category */
-            get_template_part( 
-                'template-parts/post/components/component',
-                'category',
-                $args['category']
-            );
-            /* Post Heading */
-            get_template_part( 
-                'template-parts/post/components/component', 
-                'heading', 
-                $args['title']
-            ); 
-        ?>
+<header <?php echo $cmlt_er_container_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<?php
+			/* Post Category */
+			get_template_part(
+				'template-parts/post/components/component',
+				'category',
+				$cmlt_er_template_part_args['category']
+			);
+			/* Post Heading */
+			get_template_part(
+				'template-parts/post/components/component',
+				'heading',
+				$cmlt_er_template_part_args['title']
+			);
+			?>
 </header><!--.entry-header -->

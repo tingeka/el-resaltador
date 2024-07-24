@@ -11,22 +11,23 @@
 
 <?php
 
-$args = cmlt_er_recursive_parse_args(
-    $args,
-    [
-    'display' => false,
-    'classes' => '',
-    ]
+$cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
+	$args,
+	array(
+		'display' => false,
+		'classes' => '',
+	)
 );
 
-$display = $args['display'];
-$bcn_check = function_exists( 'bcn_display' );
+$cmlt_er_display   = $cmlt_er_template_part_args['display'];
+$cmlt_er_bcn_check = function_exists( 'bcn_display' );
 
-$classes = $args['classes'];
-$container_classes = cmlt_er_generate_attr_string( [ 'class' => rtrim( 'breadcrumbs ' . $classes ) ] );
+$cmlt_er_classes           = $cmlt_er_template_part_args['classes'];
+$cmlt_er_container_classes = cmlt_er_generate_attr_string( array( 'class' => rtrim( 'breadcrumbs ' . $cmlt_er_classes ) ) );
 
-if ( $display && $bcn_check ): ?>
-    <div <?php echo $container_classes; ?>>
-        <?php bcn_display();?>
-    </div>
+if ( $cmlt_er_display && $cmlt_er_bcn_check ) :
+	?>
+	<div <?php echo $cmlt_er_container_classes;//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<?php bcn_display(); ?>
+	</div>
 <?php endif; ?>

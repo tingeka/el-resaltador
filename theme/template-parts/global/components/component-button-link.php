@@ -7,87 +7,96 @@
  * @package El_Resaltador
  */
 
-$args = cmlt_er_recursive_parse_args(
-    $args,
-    [
-        'type' => '',
-        'link' => [
-            'url'       => '',
-            'title'     => '',
-            'target'    => '',
-            'classes'   => '',
-        ],
-        'icon' => [
-            'display'   => false,
-            'type'      => '',
-            'name'      => '',
-            'id'        => '',
-            'size'      => '',
-            'classes'   => '',
-        ],
-        'text' => [
-            'display'   => false,
-            'content'   => '',
-            'classes'   => '',
-        ],
-    ]
+$cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
+	$args,
+	array(
+		'type' => '',
+		'link' => array(
+			'url'     => '',
+			'title'   => '',
+			'target'  => '',
+			'classes' => '',
+		),
+		'icon' => array(
+			'display' => false,
+			'type'    => '',
+			'name'    => '',
+			'id'      => '',
+			'size'    => '',
+			'classes' => '',
+		),
+		'text' => array(
+			'display' => false,
+			'content' => '',
+			'classes' => '',
+		),
+	)
 );
 
-$link_url = $args['link']['url'];
-$link_title = $args['link']['title'];
-$link_target = $args['link']['target'];
-$link_classes = $args['link']['classes'];
+$cmlt_er_link_url     = $cmlt_er_template_part_args['link']['url'];
+$cmlt_er_link_title   = $cmlt_er_template_part_args['link']['title'];
+$cmlt_er_link_target  = $cmlt_er_template_part_args['link']['target'];
+$cmlt_er_link_classes = $cmlt_er_template_part_args['link']['classes'];
 
-$icon_display = $args['icon']['display'];
+$cmlt_er_icon_display = $cmlt_er_template_part_args['icon']['display'];
 
-$icon_type = $args['icon']['type'];
-$icon_name = $args['icon']['name'];
-$icon_id = $args['icon']['id'];
-$icon_size = $args['icon']['size'];
-$icon_classes = $args['icon']['classes'];
+$cmlt_er_icon_type    = $cmlt_er_template_part_args['icon']['type'];
+$cmlt_er_icon_name    = $cmlt_er_template_part_args['icon']['name'];
+$cmlt_er_icon_id      = $cmlt_er_template_part_args['icon']['id'];
+$cmlt_er_icon_size    = $cmlt_er_template_part_args['icon']['size'];
+$cmlt_er_icon_classes = $cmlt_er_template_part_args['icon']['classes'];
 
-$text_display = $args['text']['display'];
+$cmlt_er_text_display = $cmlt_er_template_part_args['text']['display'];
 
-$text_content = $args['text']['content'];
-$text_classes = $args['text']['classes'];
+$cmlt_er_text_content = $cmlt_er_template_part_args['text']['content'];
+$cmlt_er_text_classes = $cmlt_er_template_part_args['text']['classes'];
 
-// Icon buffer
-$icon_html = '';
-if ( $icon_display && !empty( $icon_name ) ):
-    ob_start();
-    get_template_part( 
-        'template-parts/global/components/component-icon',
-        '',
-        [
-            'type'  => $icon_type,
-            'name' => $icon_name,
-            'id' => $icon_id,
-            'size' => $icon_size,
-            'classes' => $icon_classes
-        ]
-    );
-    $icon_html = ob_get_clean();
+// Icon buffer.
+$cmlt_er_icon_html = '';
+if ( $cmlt_er_icon_display && ! empty( $cmlt_er_icon_name ) ) :
+	ob_start();
+	get_template_part(
+		'template-parts/global/components/component-icon',
+		'',
+		array(
+			'type'    => $cmlt_er_icon_type,
+			'name'    => $cmlt_er_icon_name,
+			'id'      => $cmlt_er_icon_id,
+			'size'    => $cmlt_er_icon_size,
+			'classes' => $cmlt_er_icon_classes,
+		)
+	);
+	$cmlt_er_icon_html = ob_get_clean();
 endif;
 
-$link_type = $args['type'];
-switch ( $link_type ):
-    case 'primary':
-        $link_classes = implode( ' ', [ 'btn btn-primary flex gap-2 items-center' . $link_classes ] );
-        break;
-    case 'neutral':
-        $link_classes = implode( ' ', [ 'btn btn-neutral flex gap-2 items-center' . $link_classes ] );
-        break;
-    case 'icon':
-        $link_classes = implode( ' ', [ 'flex' . $link_classes ] );
-        break;
-    default:
-        $link_classes = implode( ' ', [ 'flex gap-2 items-center', $link_classes ] );
-        break;
+$cmlt_er_link_type = $cmlt_er_template_part_args['type'];
+switch ( $cmlt_er_link_type ) :
+	case 'primary':
+		$cmlt_er_link_classes = implode( ' ', array( 'btn btn-primary flex gap-2 items-center' . $cmlt_er_link_classes ) );
+		break;
+	case 'neutral':
+		$cmlt_er_link_classes = implode( ' ', array( 'btn btn-neutral flex gap-2 items-center' . $cmlt_er_link_classes ) );
+		break;
+	case 'icon':
+		$cmlt_er_link_classes = implode( ' ', array( 'flex' . $cmlt_er_link_classes ) );
+		break;
+	default:
+		$cmlt_er_link_classes = implode( ' ', array( 'flex gap-2 items-center', $cmlt_er_link_classes ) );
+		break;
 endswitch;
 
-// Start button markup with <a> tag
-$text_html = $text_display && !empty( $text_content ) ? cmlt_er_content_tag( 'span', $text_content, [ 'class' => $text_classes ] ) : '';
-$content = $icon_html . $text_html;
-$link_html = cmlt_er_content_tag( 'a', $content, [ 'href' => $link_url, 'title' => $link_title, 'target' => $link_target, 'class' => $link_classes ] );
+// Start button markup with <a> tag.
+$cmlt_er_text_html = $cmlt_er_text_display && ! empty( $cmlt_er_text_content ) ? cmlt_er_content_tag( 'span', esc_html( $cmlt_er_text_content ), array( 'class' => $cmlt_er_text_classes ) ) : '';
+$cmlt_er_content   = $cmlt_er_icon_html . $cmlt_er_text_html;
+$cmlt_er_link_html = cmlt_er_content_tag(
+	'a',
+	$cmlt_er_content,
+	array(
+		'href'   => $cmlt_er_link_url,
+		'title'  => $cmlt_er_link_title,
+		'target' => $cmlt_er_link_target,
+		'class'  => $cmlt_er_link_classes,
+	)
+);
 
-echo $link_html;
+echo $cmlt_er_link_html;//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

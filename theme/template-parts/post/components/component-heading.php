@@ -1,14 +1,14 @@
 <?php
 /**
  * Template part for displaying post header
- * 
+ *
  * Renders the post header content, optionally wrapped in a link.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package El_Resaltador
  *
- * @param array $args {
+ * @param array $cmlt_er_template_part_args {
  *     Optional. Arguments to customize the post header output.
  *
  *     @type string $content The post header content.
@@ -16,42 +16,39 @@
  *     @type string $link    The URL to link the post header to.
  *     @type string $classes Additional CSS classes to apply to the post header.
  * }
- * 
  */
 
-$args = cmlt_er_recursive_parse_args(
-    $args,
-    [
-        'content' => get_the_title(),
-        'tag'     => 'h1',
-        'link'    => '',
-        'classes' => 'm-0',
-    ]
+$cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
+	$args,
+	array(
+		'content' => get_the_title(),
+		'tag'     => 'h1',
+		'link'    => '',
+		'classes' => 'm-0',
+	)
 );
 
-$content = esc_html( $args['content'] );
-$tag     = $args['tag'];
-$link    = $args['link'];
-$classes = $args['classes'];
+$cmlt_er_content  = esc_html( $cmlt_er_template_part_args['content'] );
+$cmlt_er_html_tag = $cmlt_er_template_part_args['tag'];
+$cmlt_er_url      = $cmlt_er_template_part_args['link'];
+$cmlt_er_classes  = $cmlt_er_template_part_args['classes'];
 
-$title_html = cmlt_er_content_tag(
-    $tag,
-    $content,
-    [
-        'class' => rtrim( 'entry-title '. $classes ),
-    ]
+$cmlt_er_title_html = cmlt_er_content_tag(
+	$cmlt_er_html_tag,
+	$cmlt_er_content,
+	array(
+		'class' => rtrim( 'entry-title ' . $cmlt_er_classes ),
+	)
 );
 
-$link_html = cmlt_er_content_tag(
-    'a',
-    $title_html,
-    [
-        'href' => $link,
-    ]
+$cmlt_er_link_html = cmlt_er_content_tag(
+	'a',
+	$cmlt_er_title_html,
+	array(
+		'href' => $cmlt_er_url,
+	)
 );
 
-$output = $args['link'] ? $link_html : $title_html;
+$cmlt_er_output = $cmlt_er_template_part_args['link'] ? $cmlt_er_link_html : $cmlt_er_title_html;
 
-echo $output;
-
-?>
+echo $cmlt_er_output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
