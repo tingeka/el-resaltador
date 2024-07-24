@@ -209,6 +209,3 @@ require get_template_directory() . '/inc/theme-utils.php';
 
 /* LOAD CUSTOM BLOCKS LOADER */
 require get_template_directory() . '/gutenberg/load.php';
-
-/* BOOT CARBON FIELD */
-require get_template_directory() . '/inc/crb-boot.php';
