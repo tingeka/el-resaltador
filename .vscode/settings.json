@@ -1,0 +1,8 @@
+{
+    "phpcs.executablePath": "vendor/bin/phpcs",
+    "phpcs.standard": "vendor/wp-coding-standards/wpcs/WordPress",
+    "phpcs.autoConfigSearch": false,
+    "phpcs.showSources": true,
+    "phpcs.trace.server": "verbose",
+    "phpcs.enable": true,
+}
