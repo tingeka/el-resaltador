@@ -17,7 +17,7 @@ $args = cmlt_er_recursive_parse_args(
 );
 
 ?>
-
+<?php do_action( 'cmlt_er_action_post_after_header' ); ?>
 <section class="flex flex-col justify-between gap-4 xl:flex-row xl:max-w-screen-xl xl:mx-auto">
     <!--  Share column -->
     <div class="flex w-full max-w-xl mx-auto xl:mx-0 xl:max-w-72">
@@ -42,5 +42,6 @@ $args = cmlt_er_recursive_parse_args(
                 'mode' => 'light'
             ]) 
         ?>
+        <?php do_action( 'cmlt_er_action_post_sidebar' ); ?>
     </div>
 </section>

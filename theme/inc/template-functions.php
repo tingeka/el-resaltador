@@ -254,3 +254,30 @@ function cmlt_er_html5_comment( $comment, $args, $depth ) {
 		</article><!-- .comment-body -->
 	<?php
 }
+
+function cmlt_er_render_post_sidebar_pautas() {
+    if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
+		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-lateral', true );
+	} else {
+        error_log( 'Function \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas does not exist.' );
+    }
+}
+add_action( 'cmlt_er_action_post_sidebar', 'cmlt_er_render_post_sidebar_pautas' );
+
+function cmlt_er_render_post_top_pautas() {
+    if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
+		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-superior', true );
+	} else {
+        error_log( 'Function \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas does not exist.' );
+    }
+}
+add_action( 'cmlt_er_action_post_before_content', 'cmlt_er_render_post_top_pautas' );
+
+function cmlt_er_render_post_after_header_pautas() {
+    if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
+		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-debajo-tapa', true );
+	} else {
+        error_log( 'Function \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas does not exist.' );
+    }
+}
+add_action( 'cmlt_er_action_post_after_header', 'cmlt_er_render_post_after_header_pautas' );

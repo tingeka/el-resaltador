@@ -8,6 +8,7 @@
  */
 
 ?>
+<?php do_action( 'cmlt_er_action_post_before_content' ); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'px-4'); ?>>
     <!-- Post Header -->
     <?php
@@ -116,3 +117,4 @@
         )
     ?>
 </article><!-- #post-${ID} -->
+<?php do_action( 'cmlt_er_action_post_after_content' ); ?>
