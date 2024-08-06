@@ -46,12 +46,16 @@ $cmlt_er_menu_items    = cmlt_er_get_menu_array( $cmlt_er_menu_location ) ? cmlt
 			</span>
 			<?php
 				get_template_part(
-					'template-parts/global/icons/icon',
-					'hamburger',
+					'template-parts/global/components/component',
+					'icon',
 					array(
-						'classes' => 'fill-foreground',
-					)
-				)
+						'type'    => 'solid',
+						'name'    => 'bars',
+						'id'      => 'cmlt_er_fa_solid_bars',
+						'size'    => '',
+						'classes' => '',
+					),
+				);
 				?>
 		</button>
 		<div class="hidden w-full absolute top-16 left-0 bg-background md:relative md:inset-0 md:flex md:items-center md:w-auto" id="navbar-wrapper">
@@ -93,8 +97,8 @@ $cmlt_er_menu_items    = cmlt_er_get_menu_array( $cmlt_er_menu_location ) ? cmlt
 				<?php endforeach; ?>
 			</ul>
 			<!-- For mobile, list style -->
-			<ul class="flex flex-col gap-4 md:hidden">
-				<?php foreach ( $menu as $cmlt_er_menu_item ) : ?>
+			<ul class="flex flex-col gap-4 md:hidden shadow-2xl">
+				<?php foreach ( $cmlt_er_menu_items as $cmlt_er_menu_item ) : ?>
 					<?php if ( ! empty( $cmlt_er_menu_item['children'] ) ) : ?>
 						<li class="navbar-list-item navbar-list-item--has-children">
 							<span>
