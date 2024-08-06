@@ -9,7 +9,7 @@
  * @since 1.0.0
  */
 
-$cmlt_er_single         = $cmlt_er_nota_de_tapa_query->post_count <= 2;
+$cmlt_er_single         = $cmlt_er_blocks_nota_de_tapa_query->post_count <= 2;
 $cmlt_er_single_classes = $cmlt_er_single ? 'md:col-span-2' : 'lg:col-span-1';
 
 get_template_part(
