@@ -61,8 +61,8 @@
 	$cmlt_er_menu_items    = cmlt_er_get_menu_array( $cmlt_er_menu_location ) ? cmlt_er_get_menu_array( $cmlt_er_menu_location ) : array();
 	?>
 
-<footer id="colophon">
-	<section class="flex flex-col md:flex-row gap-8 justify-between w-full max-w-screen-2xl mx-auto bg-foreground text-background py-16 px-4 lg:px-8">
+<footer id="colophon" class="bg-foreground text-background">
+	<section class="flex flex-col md:flex-row gap-8 justify-between w-full max-w-screen-xl mx-auto py-16 px-4 lg:px-8">
 		<div class="flex flex-col gap-4">
 			<a href="/">
 			<?php
