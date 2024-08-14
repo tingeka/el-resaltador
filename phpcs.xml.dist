@@ -85,5 +85,6 @@
 			<property name="is_theme" value="true"/>
 		</properties>
 	</rule>
-
+    <exclude-pattern>**/gutenberg/**/index.asset.php</exclude-pattern>
+    <exclude-pattern>**/gutenberg/**/view.asset.php</exclude-pattern>
 </ruleset>
