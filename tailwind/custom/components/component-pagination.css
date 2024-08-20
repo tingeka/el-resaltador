@@ -10,7 +10,7 @@
  * The `.next` and `.prev` classes are applied to the "Next" and "Previous" navigation links.
  */
 nav.pagination .nav-links {
-	@apply flex justify-center items-center py-8 px-4 text-base
+	@apply flex justify-center items-center py-8 px-4 text-base;
 }
 
 nav.pagination .nav-links .page-numbers {
@@ -23,5 +23,5 @@ nav.pagination .nav-links .page-numbers.prev {
 }
 
 nav.pagination .nav-links .page-numbers.current {
-	@apply border border-foreground/30 rounded
+	@apply border border-foreground/30 rounded;
 }

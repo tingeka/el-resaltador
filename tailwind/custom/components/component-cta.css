@@ -4,8 +4,8 @@
  * - The child elements of `.cta` have their margin set to 0 (`m-0`).
  */
 .cta {
-	@apply h-min
+	@apply h-min;
 }
- .cta > * {
-	@apply m-0
- }
+.cta > * {
+	@apply m-0;
+}

@@ -1,1 +1,1 @@
-require('flowbite/dist/flowbite.min.js')
+require('flowbite/dist/flowbite.min.js');

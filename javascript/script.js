@@ -10,7 +10,7 @@
  */
 
 /**
- * Flowbite  
- */ 
+ * Flowbite
+ */
 import * as flowbite from './flowbite/index.js';
 import * as searchModal from './a11y-dialog/index.js';

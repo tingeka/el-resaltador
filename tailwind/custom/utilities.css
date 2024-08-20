@@ -8,17 +8,22 @@
  */
 
 .gradient-primary-soft {
-    @apply bg-gradient-to-b from-transparent via-primary-50/70 via-40% to-transparent
+	@apply bg-gradient-to-b from-transparent via-primary-50/70 via-40% to-transparent;
 }
 
- /**
+/**
  *
  */
- .separator-gradient {
-    border-image: linear-gradient(to right, theme(colors.foreground) 0%, transparent 100%) 1 stretch;
-    border-bottom:2px solid;
-  }
+.separator-gradient {
+	border-image: linear-gradient(
+			to right,
+			theme(colors.foreground) 0%,
+			transparent 100%
+		)
+		1 stretch;
+	border-bottom: 2px solid;
+}
 
- .text-inherit {
-   color: inherit;
- }
+.text-inherit {
+	color: inherit;
+}

@@ -1,6 +1,5 @@
 .post-cat {
-    @apply
-    font-mono
+	@apply font-mono
     relative 
     no-underline
     before:content-['']
@@ -9,13 +8,13 @@
     before:-top-3 
     before:left-0 
     before:w-10
-    before:h-1.5
+    before:h-1.5;
 }
 
 .post-cat-light {
-    @apply text-foreground before:bg-gradient-to-r before:from-foreground before:to-transparent
+	@apply text-foreground before:bg-gradient-to-r before:from-foreground before:to-transparent;
 }
 
 .post-cat-dark {
-    @apply text-background before:bg-gradient-to-r before:from-primary before:to-transparent
+	@apply text-background before:bg-gradient-to-r before:from-primary before:to-transparent;
 }

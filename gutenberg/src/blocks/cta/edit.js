@@ -10,13 +10,16 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
 import {
-    Panel, PanelBody, SelectControl, Placeholder
-} from "@wordpress/components";
+	Panel,
+	PanelBody,
+	SelectControl,
+	Placeholder,
+} from '@wordpress/components';
 
-import { CtaSuscribirse } from './components'
+import { CtaSuscribirse } from './components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -24,7 +27,7 @@ import { CtaSuscribirse } from './components'
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import "./editor.scss";
+import './editor.scss';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -37,52 +40,57 @@ import "./editor.scss";
 const useState = wp.element.useState;
 
 export default function Edit({ attributes, setAttributes, isSelected }) {
-    const { type } = attributes;
-    console.log(type);
-    console.log(attributes);
-    const blockProps = useBlockProps();
-     
+	const { type } = attributes;
+	console.log(type);
+	console.log(attributes);
+	const blockProps = useBlockProps();
+
 	return (
-        <>
-            <InspectorControls>
-                <Panel>
-                    <PanelBody
-                        title={ __( 'CTA - Suscribirse', 'el-resaltador' ) }
-                        icon="admin-plugins"
-                    >
-                        <SelectControl
-                            label={ __( 'Tipo de CTA', 'el-resaltador' ) }
-                            help={ __( 'Este campo sirve para elegir el tipo de CTA: claro u oscuro.', 'el-resaltador' ) }
-                            onChange={ ( type ) => setAttributes( { type } ) }
-                            value={ type }
-                            options={ [
-                                { 
-                                    label: __( 'Claro', 'el-resaltador' ), 
-                                    value: 'light' 
-                                },
-                                { 
-                                    label: __( 'Oscuro', 'el-resaltador' ), 
-                                    value: 'dark' 
-                                },
-                            ] }
-                        />
-                    </PanelBody>
-                </Panel>
-            </InspectorControls>
-            <div {...blockProps} className={`${blockProps.className} flex flex-col gap-4`}>
-                {
-                    type === undefined ? 
-                    (
-                        <Placeholder 
-                        label={__('CTA - Suscribirse', 'el-resaltador')} 
-                        instructions={ __('Añade el tipo de CTA que quieras', 'el-resaltador') }
-                        ></Placeholder>
-                    )
-                    : (
-                        <CtaSuscribirse type={type} />
-                    )
-                }
-            </div>
-        </>
-    );
+		<>
+			<InspectorControls>
+				<Panel>
+					<PanelBody
+						title={__('CTA - Suscribirse', 'el-resaltador')}
+						icon="admin-plugins"
+					>
+						<SelectControl
+							label={__('Tipo de CTA', 'el-resaltador')}
+							help={__(
+								'Este campo sirve para elegir el tipo de CTA: claro u oscuro.',
+								'el-resaltador'
+							)}
+							onChange={(type) => setAttributes({ type })}
+							value={type}
+							options={[
+								{
+									label: __('Claro', 'el-resaltador'),
+									value: 'light',
+								},
+								{
+									label: __('Oscuro', 'el-resaltador'),
+									value: 'dark',
+								},
+							]}
+						/>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
+			<div
+				{...blockProps}
+				className={`${blockProps.className} flex flex-col gap-4`}
+			>
+				{type === undefined ? (
+					<Placeholder
+						label={__('CTA - Suscribirse', 'el-resaltador')}
+						instructions={__(
+							'Añade el tipo de CTA que quieras',
+							'el-resaltador'
+						)}
+					></Placeholder>
+				) : (
+					<CtaSuscribirse type={type} />
+				)}
+			</div>
+		</>
+	);
 }

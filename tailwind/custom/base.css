@@ -15,8 +15,13 @@ body {
 	@apply bg-background text-foreground font-sans;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	@apply font-heading
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-heading;
 }
 
 /**
@@ -29,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
  * Tailwind Typography.
  */
 .page-header {
-	@apply w-full max-w-screen-xl mx-auto px-4 py-8 xl:py-16
+	@apply w-full max-w-screen-xl mx-auto px-4 py-8 xl:py-16;
 }
 .page-title,
 .entry-title {
@@ -39,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 	@apply my-0;
 }
 .editor-styles-wrapper .entry-title.post-type-post {
-	@apply max-w-[50rem]
+	@apply max-w-[50rem];
 }
 
 /**
@@ -58,8 +63,10 @@ h1, h2, h3, h4, h5, h6 {
 	@apply max-w-xl mx-auto;
 }
 
-.editor-styles-wrapper .block-editor-block-list__layout.is-root-container.entry-content > * {
-	@apply max-w-xl
+.editor-styles-wrapper
+	.block-editor-block-list__layout.is-root-container.entry-content
+	> * {
+	@apply max-w-xl;
 }
 
 .page-content > *:not(figure),

@@ -8,10 +8,10 @@
  * — from https://tailwindcss.com/docs/plugins#adding-components
  */
 
- /**
+/**
   * Applies a font-mono, font-medium, and underline style to the .wp-block-post-terms class.
   * Used to style the post terms (e.g. categories, tags) displayed in Gutenberg blocks.
   */
 .wp-block-post-terms {
-    @apply font-mono font-medium underline
+	@apply font-mono font-medium underline;
 }

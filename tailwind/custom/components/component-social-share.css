@@ -24,14 +24,18 @@
  * - On extra-large screens, prevents the buttons from wrapping `xl:flex-nowrap`.
  */
 .social-share__wrapper {
-	@apply bg-background mt-8 xl:sticky xl:top-24 xl:flex xl:self-start 
- }
- .social-share__wrapper .scriptlesssocialsharing {
-	@apply my-0 flex gap-4 flex-wrap items-start
- }
- .social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__heading {
-	@apply font-semibold text-xl text-foreground/70
- }
- .social-share__wrapper .scriptlesssocialsharing .scriptlesssocialsharing__buttons {
-	@apply xl:max-w-min xl:flex-nowrap xl:flex-col
- }
+	@apply bg-background mt-8 xl:sticky xl:top-24 xl:flex xl:self-start;
+}
+.social-share__wrapper .scriptlesssocialsharing {
+	@apply my-0 flex gap-4 flex-wrap items-start;
+}
+.social-share__wrapper
+	.scriptlesssocialsharing
+	.scriptlesssocialsharing__heading {
+	@apply font-semibold text-xl text-foreground/70;
+}
+.social-share__wrapper
+	.scriptlesssocialsharing
+	.scriptlesssocialsharing__buttons {
+	@apply xl:max-w-min xl:flex-nowrap xl:flex-col;
+}

@@ -9,21 +9,21 @@
 
 /* Mobile navbar */
 .navbar-footer-item.navbar-footer-item--has-children {
-    @apply flex flex-col
+	@apply flex flex-col;
 }
 footer .navbar-footer-item > span,
 footer .navbar-footer-item > a {
-	@apply w-full font-bold py-2 px-4 cursor-pointer border border-gray-700 rounded
+	@apply w-full font-bold py-2 px-4 cursor-pointer border border-gray-700 rounded;
 }
 
 footer .navbar-footer-item a {
-	@apply flex items-center transition-colors hover:bg-gray-700
+	@apply flex items-center transition-colors hover:bg-gray-700;
 }
 
 footer .navbar-footer-item .navbar-footer-item__sub-item a {
-	@apply py-2 px-4
+	@apply py-2 px-4;
 }
 
 footer .navbar-footer-item .navbar-footer-item__sub-item li {
-	@apply ml-4 border-l border-gray-700
+	@apply ml-4 border-l border-gray-700;
 }

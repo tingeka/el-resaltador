@@ -11,36 +11,36 @@
 
 .navbar-list-item > span,
 .navbar-list-item > a > span {
-	@apply font-bold py-2 pl-4 cursor-pointer
+	@apply font-bold py-2 pl-4 cursor-pointer;
 }
 
 .navbar-list-item a {
-	@apply flex items-center transition-colors hover:bg-gray-300
+	@apply flex items-center transition-colors hover:bg-gray-300;
 }
 
 .navbar-list-item .navbar-list-item__sub-item a {
-	@apply py-2 pl-4
+	@apply py-2 pl-4;
 }
 
 .navbar-list-item .navbar-list-item__sub-item li {
-	@apply ml-4 border-l border-gray-300
+	@apply ml-4 border-l border-gray-300;
 }
 
 /* Desktop navbar */
 
 .navbar-dropdown-item .navbar-dropdown__btn,
 .navbar-dropdown-item a {
-	@apply flex flex-row items-center py-2 px-4 rounded font-bold transition-colors hover:bg-gray-300
+	@apply flex flex-row items-center py-2 px-4 rounded font-bold transition-colors hover:bg-gray-300;
 }
 
 .navbar-dropdown-item .navbar-dropdown-item__sub-item a {
-	@apply font-normal
+	@apply font-normal;
 }
 
 .navbar-dropdown-container {
-	@apply z-10 hidden font-normal bg-background rounded shadow w-44
+	@apply z-10 hidden font-normal bg-background rounded shadow w-44;
 }
 
 .navbar-dropdown-item__sub-item {
-	@apply text-sm font-medium text-foreground
+	@apply text-sm font-medium text-foreground;
 }
