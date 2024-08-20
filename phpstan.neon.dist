@@ -1,0 +1,11 @@
+parameters:
+    level: 5
+    paths:
+        - .
+    excludePaths:
+        analyse:
+            - vendor
+            - theme/gutenberg/**/*
+        analyseAndScan:
+            - node_modules
+            - languages
