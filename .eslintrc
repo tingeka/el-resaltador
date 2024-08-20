@@ -39,8 +39,11 @@
 						"config": "./tailwind/tailwind.config.js",
 						"whitelist": [
 							"(page|entry|comment|wp-block|wp-element)\\-([-a-z]*)",
-							"vcard"
-						]
+							"vcard",
+                            "navbar-dropdown-item--.*",
+                            "navbar-dropdown-item__.*",
+                            "navbar-list-item--.*"
+                        ]
 					}
 				]
 			},
