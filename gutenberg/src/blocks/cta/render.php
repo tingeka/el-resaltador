@@ -12,7 +12,9 @@
 ?>
 <div class="not-prose">
 <?php
-$cmlt_er_blocks_cta_type = $attributes['type'];
+// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+/* @var array $attributes */
+$cmlt_er_blocks_cta_type = $attributes['type'] ?? '';
 get_template_part(
 	'template-parts/global/components/component',
 	'cta',

@@ -9,7 +9,13 @@
  * @since 1.0.0
  */
 
+/**
+ * Extracts post IDs from the selected posts attribute.
+ *
+ * @var array $attributes Block attributes.
+ */
 $cmlt_er_blocks_nota_de_tapa_post_ids = array_column( $attributes['selectedPosts'], 'id' );
+
 
 // return early if no posts were selected.
 if ( empty( $cmlt_er_blocks_nota_de_tapa_post_ids ) ) {
