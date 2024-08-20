@@ -188,25 +188,23 @@ if ( ! function_exists( 'cmlt_er_content_class' ) ) :
 	 *
 	 * Based on WordPress core’s `body_class` and `get_body_class` functions.
 	 *
-	 * @param array $classes Space-separated string or array of class names to
+	 * @param string|array $classes Space-separated string or array of class names to
 	 *                     add to the class list.
 	 */
 	function cmlt_er_content_class( $classes = '' ) {
-		$all_classes = array( $classes, CMLT_ER_TYPOGRAPHY_CLASSES );
 
-		foreach ( $all_classes as &$class_groups ) {
-			if ( ! empty( $class_groups ) ) {
-				if ( ! is_array( $class_groups ) ) {
-					$class_groups = preg_split( '#\s+#', $class_groups );
-				}
-			} else {
-				// Ensure that we always coerce class to being an array.
-				$class_groups = array();
-			}
+		if ( empty( $classes ) ) {
+			$classes = array();
 		}
 
-		$combined_classes = array_merge( $all_classes[0], $all_classes[1] );
-		$combined_classes = array_map( 'esc_attr', $combined_classes );
+		$all_classes = array_merge( (array) $classes, (array) CMLT_ER_TYPOGRAPHY_CLASSES );
+
+		// Ensure that we always coerce class to being an array.
+		if ( ! is_array( $all_classes ) ) {
+			$all_classes = preg_split( '#\s+#', $all_classes );
+		}
+
+		$combined_classes = array_map( 'esc_attr', $all_classes );
 
 		// Separates class names with a single space, preparing them for the
 		// post content wrapper.

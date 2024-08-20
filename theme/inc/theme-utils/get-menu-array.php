@@ -19,15 +19,15 @@ if ( ! function_exists( 'cmlt_er_get_menu_array' ) ) :
 
 		// Get the menu object.
 		$menu_object = wp_get_nav_menu_object( $locations[ $menu_location ] );
-		// Check for WP_Error.
-		if ( is_wp_error( $menu_object ) ) {
+		// Check.
+		if ( false === $menu_object ) {
 			return array();
 		}
 
 		// Get the menu items.
 		$cmlt_er_menu_items = wp_get_nav_menu_items( $menu_object->term_id );
-		// Check for WP_Error.
-		if ( is_wp_error( $cmlt_er_menu_items ) ) {
+		// Check.
+		if ( false === $cmlt_er_menu_items ) {
 			return array();
 		}
 

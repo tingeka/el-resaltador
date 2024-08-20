@@ -17,12 +17,13 @@ if ( ! function_exists( 'cmlt_er_posted_by' ) ) :
 			array( 'class' => 'sr-only' )
 		);
 
+		$author_id   = get_the_author_meta( 'ID' );
 		$author_link = cmlt_er_content_tag(
 			'a',
 			esc_html( get_the_author() ),
 			array(
 				'class' => 'url fn n',
-				'href'  => get_author_posts_url( get_the_author_meta( 'ID' ) ),
+				'href'  => get_author_posts_url( (int) $author_id ),
 			)
 		);
 

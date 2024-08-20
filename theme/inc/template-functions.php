@@ -34,9 +34,21 @@ add_filter( 'comment_form_defaults', 'cmlt_er_comment_form_defaults' );
 
 /**
  * Filters the default archive titles.
+ *
+ * This function is hooked to the `get_the_archive_title` filter and modifies the default
+ * archive titles by adding screen-reader-only text before them. The modified titles are
+ * returned by the function.
+ *
+ * @param string $title The default archive title.
+ * @return string The modified archive title.
  */
-function cmlt_er_get_the_archive_title() {
-
+function cmlt_er_get_the_archive_title( $title = '' ) {
+	/**
+	 * Function to wrap text in a span element with a class of 'sr-only'.
+	 *
+	 * @param string $str The string to wrap.
+	 * @return string The wrapped string.
+	 */
 	$prepend = function ( $str ) {
 		return cmlt_er_content_tag(
 			'span',
@@ -47,33 +59,37 @@ function cmlt_er_get_the_archive_title() {
 		);
 	};
 
+	// Check the archive type and modify the title accordingly.
 	if ( is_category() ) {
-		/* traductores: Prefijo del título del archivo de categoría */
+		// Traducción: Prefijo del título del archivo de categoría.
 		$title = $prepend( esc_html_x( 'Sección: ', 'Prefijo del título del archivo de categoría', 'el-resaltador' ) ) . single_cat_title( '', false );
 	} elseif ( is_tag() ) {
-		/* traductores: Prefijo del título del archivo de etiquetas */
+		// Traducción: Prefijo del título del archivo de etiquetas.
 		$title = $prepend( esc_html_x( 'Etiqueta: ', 'Prefijo del título del archivo de etiquetas', 'el-resaltador' ) ) . single_cat_title( '', false );
 	} elseif ( is_author() ) {
-		/* traductores: Prefijo del título del archivo de autor */
+		// Traducción: Prefijo del título del archivo de autor.
 		$title = $prepend( esc_html_x( 'Autor/a: ', 'Prefijo del título del archivo de autor', 'el-resaltador' ) ) . get_the_author_meta( 'display_name' );
 	} elseif ( is_year() ) {
-		/* traductores: Prefijo del título del archivo anual */
+		// Traducción: Prefijo del título del archivo anual.
 		$title = $prepend( esc_html_x( 'Anuario: ', 'Prefijo del título del archivo anual', 'el-resaltador' ) ) . get_the_date( _x( 'Y', 'formato de fecha de los archivos anuales', 'el-resaltador' ) );
 	} elseif ( is_month() ) {
-		/* traductores: Prefijo del título del archivo mensual */
+		// Traducción: Prefijo del título del archivo mensual.
 		$title = $prepend( esc_html_x( 'Mes: ', 'Prefijo del título del archivo mensual', 'el-resaltador' ) ) . get_the_date( _x( 'F Y', 'formato de fecha de los archivos mensuales', 'el-resaltador' ) );
 	} elseif ( is_day() ) {
-		/* traductores: Prefijo del título del archivo diario */
+		// Traducción: Prefijo del título del archivo diario.
 		$title = $prepend( esc_html_x( 'Día: ', 'Prefijo del título del archivo diario', 'el-resaltador' ) ) . get_the_date( _x( 'F j, Y', 'formato de fecha de los archivos diarios', 'el-resaltador' ) );
 	} elseif ( is_post_type_archive() ) {
+		// Get the post type object.
 		$cpt = get_post_type_object( get_queried_object()->name );
-		/* traductores: Prefijo del título del archivo de tipo de contenido */
+		// Traducción: Prefijo del título del archivo de tipo de contenido.
 		$title = $prepend( esc_html_x( 'Archivo de tipo de contenido: ', 'Prefijo del título del archivo de tipo de contenido', 'el-resaltador' ) ) . $cpt->labels->singular_name;
 	} elseif ( is_tax() ) {
+		// Get the taxonomy object.
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
-		/* traductores: Prefijo del título del archivo de taxonomía */
+		// Traducción: Prefijo del título del archivo de taxonomía.
 		$title = $prepend( esc_html_x( 'Taxonomía: ', 'Prefijo del título del archivo de taxonomía', 'el-resaltador' ) ) . $tax->labels->singular_name;
 	} elseif ( is_search() ) {
+		// Check if search query is set and nonce is valid.
 		if ( isset( $_GET['s'] ) && isset( $_GET['_wpnonce'] ) ) {
 			$nonce = sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) );
 			if ( wp_verify_nonce( $nonce, 'search_nonce' ) ) {
@@ -81,12 +97,12 @@ function cmlt_er_get_the_archive_title() {
 				$query = cmlt_er_is_empty_value( $query )
 					? 'Buscar: '
 					: esc_html_x( 'Buscaste: ', 'Prefijo del título de resultados de búsqueda', 'el-resaltador' ) . $query;
-				/* traductores: Prefijo del título de resultados de búsqueda */
+				// Traducción: Prefijo del título de resultados de búsqueda.
 				$title = $query;
 			}
 		}
 	} else {
-		/* traductores: Título genérico de archivo */
+		// Traducción: Título genérico de archivo.
 		$title = esc_html_x( 'Archivos:', 'Título genérico de archivo', 'el-resaltador' );
 	}
 
@@ -205,7 +221,7 @@ function cmlt_er_html5_comment( $comment, $args, $depth ) {
 		$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'el-resaltador' );
 	}
 	?>
-	<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment->has_children ? 'parent' : '', $comment ); ?>>
+	<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment->get_children() ? 'parent' : '', $comment ); ?>> 
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
