@@ -11,7 +11,7 @@
 
 ?>
 
-<li class="not-prose list-none m-0 mb-8">
+<li class="not-prose m-0 mb-8 list-none">
 <?php
 get_template_part(
 	'template-parts/post/content/content',

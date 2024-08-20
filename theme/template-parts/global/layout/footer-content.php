@@ -62,7 +62,7 @@
 	?>
 
 <footer id="colophon" class="bg-foreground text-background">
-	<section class="flex flex-col md:flex-row gap-8 justify-between w-full max-w-screen-xl mx-auto py-16 px-4 lg:px-8">
+	<section class="mx-auto flex w-full max-w-screen-xl flex-col justify-between gap-8 px-4 py-16 md:flex-row lg:px-8">
 		<div class="flex flex-col gap-4">
 			<a href="/">
 			<?php
@@ -117,7 +117,7 @@
 		</div>
 		<div class="flex items-center" id="footer-menu-wrapper">
 				<!-- For mobile, list style -->
-				<ul class="w-full flex flex-col sm:flex-row gap-4">
+				<ul class="flex w-full flex-col gap-4 sm:flex-row">
 					<?php foreach ( $cmlt_er_menu_items as $cmlt_er_menu_item ) : ?>
 						<?php if ( ! empty( $cmlt_er_menu_item['children'] ) ) : ?>
 							<li class="navbar-footer-item navbar-footer-item--has-children">
@@ -149,7 +149,7 @@
 				</ul>
 			</div>
 	</section>
-	<section class="flex justify-center py-1 bg-foreground/90 text-background">
+	<section class="flex justify-center bg-foreground/90 py-1 text-background">
 		<p>Todos los derechos reservados.</p>
 	</section>
 </footer><!-- #colophon -->

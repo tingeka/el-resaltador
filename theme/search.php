@@ -32,7 +32,7 @@ get_header();
 					)
 				);
 			?>
-			<section class="flex flex-col gap-8 max-w-screen-xl mx-auto lg:flex-row px-4">
+			<section class="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 lg:flex-row">
 				<div>
 					<?php
 						// Start the Loop.
