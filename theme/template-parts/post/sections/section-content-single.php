@@ -12,15 +12,15 @@
 <?php
 
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array(),
 );
 
 ?>
 <?php do_action( 'cmlt_er_action_post_after_header' ); ?>
-<section class="flex flex-col justify-between gap-4 xl:flex-row xl:max-w-screen-xl xl:mx-auto">
+<section class="flex flex-col justify-between gap-4 xl:mx-auto xl:max-w-screen-xl xl:flex-row">
 	<!--  Share column -->
-	<div class="flex w-full max-w-xl mx-auto xl:mx-0 xl:max-w-72">
+	<div class="mx-auto flex w-full max-w-xl xl:mx-0 xl:max-w-72">
 		<!-- Share column wrapper -->
 		<div class="social-share__wrapper ">
 			<!-- Share column content -->
@@ -34,7 +34,7 @@ $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
 			<?php the_content(); ?>
 		</div>
 	</div>
-	<div class="w-full max-w-xl mx-auto flex flex-col gap-8 xl:mt-8 xl:max-w-72 xl:mx-0">
+	<div class="mx-auto flex w-full max-w-xl flex-col gap-8 xl:mx-0 xl:mt-8 xl:max-w-72">
 		<!-- Right column content -->
 		<?php
 			get_template_part(

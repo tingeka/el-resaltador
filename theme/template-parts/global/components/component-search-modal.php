@@ -8,7 +8,7 @@
  */
 
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array()
 );
 
@@ -19,7 +19,7 @@ $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
 	data-a11y-dialog="search-modal"
 	aria-labelledby="search-modal-title"
 	aria-hidden="true"
-	class="flex fixed inset-0 z-[999] overflow-y-auto aria-hidden:hidden"
+	class="fixed inset-0 z-[999] flex overflow-y-auto aria-hidden:hidden"
 >
 	<!-- 2. The dialog overlay -->
 	<div 
@@ -28,7 +28,7 @@ $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
 	>
 	</div>
 	<!-- 3. The actual dialog -->
-		<div role="document" class="relative w-full md:w-1/3 bg-background px-4 py-8 z-40">
+		<div role="document" class="relative z-40 w-full bg-background px-4 py-8 md:w-1/3">
 		<!-- 4. The close button -->
 			<!-- <button type="button" data-a11y-dialog-hide aria-label="Cerrar" class="absolute top-0 right-0 p-4 focus:outline-none">
 				&times;
@@ -57,10 +57,10 @@ $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
 				)
 				?>
 			<!-- 5. The dialog title -->
-			<h2 id="search-modal-title" class="text-2xl font-bold separator-gradient">Buscar</h2>
+			<h2 id="search-modal-title" class="separator-gradient text-2xl font-bold">Buscar</h2>
 			<!-- 6. Dialog content -->
-			<div class="m-auto z-10 relative bg-foreground">
-				<div class="bg-background my-4">
+			<div class="relative z-10 m-auto bg-foreground">
+				<div class="my-4 bg-background">
 					<?php
 						get_search_form();
 					?>

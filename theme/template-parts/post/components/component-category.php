@@ -26,7 +26,7 @@
  */
 
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array(
 		'mode'    => 'light',
 		'display' => true,
@@ -43,7 +43,7 @@ $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
 );
 
 $cmlt_er_variation = $cmlt_er_template_part_args['mode'];
-
+$cmlt_er_a_classes = '';
 switch ( $cmlt_er_variation ) :
 	case 'dark':
 		$cmlt_er_a_classes = $cmlt_er_template_part_args['a']['classes'] . ' post-cat-dark';

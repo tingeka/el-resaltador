@@ -8,7 +8,7 @@
  */
 
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array(
 		'container' => array(
 			'classes' => 'w-full mx-auto',

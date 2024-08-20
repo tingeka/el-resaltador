@@ -8,7 +8,7 @@
  */
 
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array(
 		'container'   => array(
 			'classes' => 'flex gap-4 md:gap-8 max-w-xl mx-auto',

@@ -8,7 +8,7 @@
  */
 
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array(
 		'display' => true,
 		'content' => get_the_excerpt(),

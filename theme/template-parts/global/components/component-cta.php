@@ -11,7 +11,7 @@
 
 <?php
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array(
 		'mode' => 'dark',
 	)
@@ -31,8 +31,8 @@ switch ( $cmlt_er_template_part_args['mode'] ) :
 endswitch;
 ?>
 
-<div class="flex py-16 p-4 rounded <?php echo $cmlt_er_container_classes;//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
-	<div class="w-full flex flex-col items-start gap-4">
+<div class="flex rounded p-4 py-16 <?php echo $cmlt_er_container_classes;//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+	<div class="flex w-full flex-col items-start gap-4">
 		<?php
 		echo cmlt_er_content_tag(//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'img',
@@ -44,11 +44,11 @@ endswitch;
 		);
 		?>
 		<p 
-			class="text-2xl font-heading font-bold"
+			class="font-heading text-2xl font-bold"
 			>
 			Apoya el periodismo 
 			<span 
-				class="p-1 border rounded <?php echo esc_attr( $cmlt_er_span_border_color ); ?>"
+				class="rounded border p-1 <?php echo esc_attr( $cmlt_er_span_border_color ); ?>"
 				>
 				autogestionado
 			</span>

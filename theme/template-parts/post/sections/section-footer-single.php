@@ -12,7 +12,7 @@
 <?php
 
 $cmlt_er_template_part_args = cmlt_er_recursive_parse_args(
-	$args,
+	$args ?? array(),
 	array(
 		'container'  => array(
 			'classes' => 'max-w-[50rem] mx-auto flex flex-col gap-8',
