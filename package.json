@@ -61,7 +61,9 @@
 		"production:gutenberg:blocks": "wp-scripts build --webpack-copy-php --webpack-src-dir=\"./gutenberg/src/blocks\" --output-path=\"./theme/gutenberg/blocks\"",
 		"production:gutenberg:blocks-extensions": "wp-scripts build --webpack-src-dir=\"./gutenberg/src/block-extensions\" --output-path=\"./theme/gutenberg/block-extensions\"",
 		"production:gutenberg:blocks-formats": "wp-scripts build --webpack-src-dir=\"./gutenberg/src/block-formats\" --output-path=\"./theme/gutenberg/block-formats\"",
-		"production:gutenberg:blocks-styles": "wp-scripts build --webpack-src-dir=\"./gutenberg/src/block-styles\" --output-path=\"./theme/gutenberg/block-styles\"",		"production": "run-p \"production:**\"",
+		"production:gutenberg:blocks-styles": "wp-scripts build --webpack-src-dir=\"./gutenberg/src/block-styles\" --output-path=\"./theme/gutenberg/block-styles\"",		
+        "production:icons": "node node_scripts/copy-fa-icons.js",
+        "production": "run-p \"production:**\"",
 		"prod": "npm run production",
 		"zip": "node node_scripts/zip.js el-resaltador",
 		"bundle": "run-s production zip"
