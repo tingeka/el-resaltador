@@ -294,44 +294,57 @@ function cmlt_er_html5_comment( $comment, $args, $depth ) {
 	<?php
 }
 
-/**
- * Renders the post sidebar pautas.
- *
- * This function checks if the `\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas` function exists, and if so, it calls that function to render the pautas content in the 'notas-lateral' location. If the function does not exist, it logs an error message.
- *
- * This function is hooked to the `cmlt_er_action_post_sidebar` action.
- */
-function cmlt_er_render_post_sidebar_pautas() {
-	if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
-		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-lateral', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-}
-add_action( 'cmlt_er_action_post_sidebar', 'cmlt_er_render_post_sidebar_pautas' );
+if ( class_exists( '\Cmlt\Gestor_Pautas\Cmlt_Gestor_Pautas' )
+	&& function_exists( 'cmlt_gestor_pautas_render' )
+	) {
 
-/**
- * Renders the post top pautas.
- *
- * This function checks if the `\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas` function exists, and if so, it calls that function to render the pautas content in the 'notas-superior' location. If the function does not exist, it logs an error message.
- *
- * This function is hooked to the `cmlt_er_action_post_before_content` action.
- */
-function cmlt_er_render_post_top_pautas() {
-	if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
-		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-superior', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-}
-add_action( 'cmlt_er_action_post_before_content', 'cmlt_er_render_post_top_pautas' );
+	/**
+	 * Renders the post sidebar pautas.
+	 *
+	 * This function checks if the `\Cmlt\Gestor_Pautas\cmlt_gestor_pautas_render` function exists, and if so, it calls that function to render the pautas content in the 'notas-lateral' location. If the function does not exist, it logs an error message.
+	 *
+	 * This function is hooked to the `cmlt_er_action_post_sidebar` action.
+	 */
+	function cmlt_er_render_post_sidebar_pautas() {
 
-/**
- * Renders the post after header pautas.
- *
- * This function checks if the `\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas` function exists, and if so, it calls that function to render the pautas content in the 'notas-debajo-tapa' location. If the function does not exist, it logs an error message.
- *
- * This function is hooked to the `cmlt_er_action_post_after_header` action.
- */
-function cmlt_er_render_post_after_header_pautas() {
-	if ( function_exists( '\Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas' ) ) {
-		echo \Cmlt\Gestor_Pautas\render_cmlt_gestor_pautas( 'notas-debajo-tapa', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		if ( ! class_exists( '\Cmlt\Gestor_Pautas\Cmlt_Gestor_Pautas' ) ) {
+			return;
+		}
+
+		if ( ! function_exists( 'cmlt_gestor_pautas_render' ) ) {
+			return;
+		}
+
+		echo cmlt_gestor_pautas_render( 'notas-lateral', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
+	add_action( 'cmlt_er_action_post_sidebar', 'cmlt_er_render_post_sidebar_pautas' );
+
+	/**
+	 * Renders the post top pautas.
+	 *
+	 * This function checks if the `\Cmlt\Gestor_Pautas\cmlt_gestor_pautas_render` function exists, and if so, it calls that function to render the pautas content in the 'notas-superior' location. If the function does not exist, it logs an error message.
+	 *
+	 * This function is hooked to the `cmlt_er_action_post_before_content` action.
+	 */
+	function cmlt_er_render_post_top_pautas() {
+		if ( function_exists( '\Cmlt\Gestor_Pautas\cmlt_gestor_pautas_render' ) ) {
+			echo \Cmlt\Gestor_Pautas\cmlt_gestor_pautas_render( 'notas-superior', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+	add_action( 'cmlt_er_action_post_before_content', 'cmlt_er_render_post_top_pautas' );
+
+	/**
+	 * Renders the post after header pautas.
+	 *
+	 * This function checks if the `\Cmlt\Gestor_Pautas\cmlt_gestor_pautas_render` function exists, and if so, it calls that function to render the pautas content in the 'notas-debajo-tapa' location. If the function does not exist, it logs an error message.
+	 *
+	 * This function is hooked to the `cmlt_er_action_post_after_header` action.
+	 */
+	function cmlt_er_render_post_after_header_pautas() {
+		if ( function_exists( '\Cmlt\Gestor_Pautas\cmlt_gestor_pautas_render' ) ) {
+			echo \Cmlt\Gestor_Pautas\cmlt_gestor_pautas_render( 'notas-debajo-tapa', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+	add_action( 'cmlt_er_action_post_after_header', 'cmlt_er_render_post_after_header_pautas' );
+
 }
-add_action( 'cmlt_er_action_post_after_header', 'cmlt_er_render_post_after_header_pautas' );
